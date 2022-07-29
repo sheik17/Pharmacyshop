@@ -4,7 +4,11 @@ import java.util.Date;
 
 public class Payment {
 	private int user_id;
-	private String modeofpayment;   
+	private String modeofpayment;  
+	private float amount;
+	private int bill_id;
+	private int payment_id;
+	private Date payment_date;
 	public int getUser_id() {
 		return user_id;
 	}
@@ -41,8 +45,5 @@ public class Payment {
 	public void setPayment_date(Date payment_date) {
 		this.payment_date = payment_date;
 	}
-	private float amount;
-	private int bill_id;
-	private int payment_id;
-	private Date payment_date;
+
 }
