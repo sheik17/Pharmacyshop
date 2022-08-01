@@ -2,9 +2,12 @@ package com.chainsys.pharmacyshop.repository;
 
 import java.util.List;
 
-import com.chainsys.pharmacyshop.pojo.User;
+import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository {
+import com.chainsys.pharmacyshop.model.User;
+
+
+public interface UserRepository extends CrudRepository<User, Integer>{
 	User findById(int id);
 
 	User save(User u);

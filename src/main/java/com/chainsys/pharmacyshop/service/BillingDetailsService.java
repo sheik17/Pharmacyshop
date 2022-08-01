@@ -1,5 +1,32 @@
 package com.chainsys.pharmacyshop.service;
 
-public class BillingDetailsService {
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.chainsys.pharmacyshop.model.BillDetails;
+import com.chainsys.pharmacyshop.repository.BillingDetailsRepository;
+
+@Service
+public class BillingDetailsService {
+	@Autowired
+	private BillingDetailsRepository billDetailRepo;
+	
+	public BillDetails findById(int id) {
+		return billDetailRepo.findById(id);
+	}
+	
+	public BillDetails deleteById(int billid) {
+		return billDetailRepo.deleteById(billid);
+	}
+	
+	public void save(BillDetails bill) {
+		billDetailRepo.save(bill);
+	}
+	
+	public List<BillDetails> findAll() {
+		
+		return billDetailRepo.findAll();
+	}
 }

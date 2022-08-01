@@ -58,7 +58,6 @@
 		<dependency>
     <groupId>com.oracle.database.jdbc</groupId>
     <artifactId>ojdbc11</artifactId>
-    <version>21.1.0.0</version>
 </dependency>
 	</dependencies>
   <build>
@@ -69,14 +68,12 @@
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
         <configuration>
           <release>16</release>
         </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
-        <version>3.2.3</version>
       </plugin>
     </plugins>
   </build>
