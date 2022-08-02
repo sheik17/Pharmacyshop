@@ -1,5 +1,6 @@
 package com.chainsys.pharmacyshop.model;
 
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -7,10 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
-
-import org.springframework.web.multipart.MultipartFile;
-
-import oracle.sql.BLOB;
 
 @Entity
 @Table(name="Medicine")
@@ -32,7 +29,8 @@ public class Medicine {
 	Date manufacture;
 	@Column(name="STOCKS")
 	private long stocks;
-	@Column(name="MEDICINE_IMG",nullable = true, length = 64)
+	@Lob
+	@Column(name="MEDICINE_IMG")
     private String medicineimg;
 	
 	public int getMedicineid() {

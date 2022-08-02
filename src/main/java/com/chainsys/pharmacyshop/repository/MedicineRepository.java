@@ -9,9 +9,9 @@ import com.chainsys.pharmacyshop.model.Medicine;
 public interface MedicineRepository extends CrudRepository<Medicine, Integer>{
 	Medicine findById(int id);
 
-	Medicine save(Medicine Med);
+	Medicine save(Medicine med);
 
-	Medicine deleteById(int userid);
+	Medicine deleteById(int medid);
 
 	List<Medicine> findAll();
 }
