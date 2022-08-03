@@ -6,7 +6,6 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -29,7 +28,6 @@ public class Medicine {
 	Date manufacture;
 	@Column(name="STOCKS")
 	private long stocks;
-	@Lob
 	@Column(name="MEDICINE_IMG")
     private String medicineimg;
 	

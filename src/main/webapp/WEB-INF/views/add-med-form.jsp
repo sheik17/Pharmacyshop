@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="th" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Medicine</title>
@@ -13,7 +11,7 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="addmed" method="post" th:object="${productDTO}" enctype="multipart/form-data" modelAttribute="addmed">
+			<form:form action="addmed" method="post" object="product" enctype="multipart/form-data" modelAttribute="addmed">
 				<div>
 					<label for="medicineid">Medicine Id</label>
 					<div>
@@ -66,18 +64,13 @@
 					<p>Product Image</p>
 					<div class="custom-file">
 						<input type="file" class="custom-file-input" name="productImage"
-							accept="image/jpeg, image/png" id="productImage" /> <label
-							class="custom-file-label" for=medicineimg>Choosefile</label>
+							accept="image/jpeg, image/png ,image/jpg" id="productImage" /> <label
+							class="custom-file-label" for=productImage>Choosefile</label>
 					</div>
 				</div>
-				<div class="form-group">
-					<img src="#" id="imgPreview" height="100px" width="100px"
-						th:src="@{{'/productImages/' + productDTO.imageName}}"
-						style="margin-top: 20px" alt=" ">
-				</div>
 				<input type="hidden" name="imgName"
-					th:value="${productDTO.imageName}">
-				<form:button type="submit" class="btn btn-primary">Submit</form:button>
+					value="product.medicineImg">
+				<form:button type="submit" class="btn btn-primary">Add Medicines</form:button>
 			</form:form>
 		</div>
 	</div>

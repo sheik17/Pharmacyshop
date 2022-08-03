@@ -11,7 +11,7 @@
 <body>
     <div id="root">
         <div id="form">
-            <form:form action="updatemed" method="post" modelAttribute="updatemed">
+            <form:form action="updatemed" method="post" object="product" enctype="multipart/form-data" modelAttribute="updatemed">
                 <div>
 					<label for="medicineid">Medicine Id</label>
 					<div>
@@ -60,13 +60,17 @@
 						<form:input path="stocks" />
 					</div>
 				</div>
-				<div>
-					<label for='medicineimg'>Medicine_Img <input
-						name='medicineimg' placeholder='file' type='file'
-						accept='image/*'>
-					</label>
+				<div class="col-sm-5">
+					<p>Product Image</p>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" name="productImage"
+							accept="image/jpeg, image/png ,image/jpg" id="productImage" /> <label
+							class="custom-file-label" for=productImage>Choosefile</label>
+					</div>
 				</div>
-				<form:button>Update</form:button>
+				<input type="hidden" name="imgName"
+					value="product.imageName">
+				<form:button type="submit" class="btn btn-primary">Update Medicines</form:button>
 			</form:form>
 		</div>
 	</div>

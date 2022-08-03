@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -36,7 +36,7 @@
 						<td>${medicine.expdate}</td>
 						<td>${medicine.pescriptionreq}</td>
 						<td>${medicine.stocks}</td>
-						<td>${medicine.medicineimg}</td>
+						<td><img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}" width="100" height="100"></td>
 					</tr>
 				</c:forEach>
 			</tbody>

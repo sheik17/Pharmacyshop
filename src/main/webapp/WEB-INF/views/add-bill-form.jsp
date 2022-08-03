@@ -11,7 +11,8 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="addbill" method="post" modelAttribute="addbill">
+			<form:form action="addbill" method="post" object="bill"
+				enctype="multipart/form-data" modelAttribute="addbill">
 				<div>
 					<label for="billid">Bill_Id</label>
 					<div>
@@ -30,10 +31,15 @@
 						<form:input path="billdate" />
 					</div>
 				</div>
-				<div>
-					<label for="pescriptionimg">Pescription_Img</label>
+				<div class="col-sm-5">
+					<p>Prescription Image</p>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" name="productImage"
+							accept="image/jpeg, image/png ,image/jpg" id="productImage" /> <label
+							class="custom-file-label" for=productImage>Choosefile</label>
+					</div>
 					<div>
-						<form:input path="pescriptionimg" />
+						<input type="hidden" name="imgName" value="bill.pescriptionimg">
 					</div>
 				</div>
 				<div>
@@ -42,7 +48,7 @@
 						<form:input path="billamount" />
 					</div>
 				</div>
-				<form:button>Add new</form:button>
+				<form:button type="submit" class="btn btn-primary">Update Medicines</form:button>
 			</form:form>
 		</div>
 	</div>

@@ -1,15 +1,19 @@
 package com.chainsys.pharmacyshop.controller;
 
-import java.util.List; 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.chainsys.pharmacyshop.model.Billing;
 import com.chainsys.pharmacyshop.service.BillingService;
@@ -19,6 +23,7 @@ import com.chainsys.pharmacyshop.service.BillingService;
 public class BillingController {
 	@Autowired
 	BillingService billservice;
+	public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/presImg";
 
 	@GetMapping("/billlist")
 	public String getBillAll(Model model) {
@@ -42,8 +47,21 @@ public class BillingController {
 	}
 
 	@PostMapping("/addbill")
-	public String addNewUser(@ModelAttribute("addbill") Billing thebill) {
-		billservice.save(thebill);
+	public String addNewUser(@RequestParam("productImage") MultipartFile file, Billing bill,
+			@RequestParam("imgName") String imgName) throws IOException {
+		bill.setBillamount(bill.getBillamount());
+		bill.setBilldate(bill.getBilldate());
+		bill.setBillid(bill.getBillid());
+		bill.setUserid(bill.getUserid());
+		String imageUUID;
+		if (!file.isEmpty()) {
+			imageUUID = file.getOriginalFilename();
+			Path fileAndPathName = Paths.get(uploadDir, imageUUID);
+			Files.write(fileAndPathName, file.getBytes());
+		} else {
+			imageUUID = imgName;
+		}
+		bill.setPescriptionimg(imageUUID);
 		return "redirect:/bill/billlist";
 	}
 
@@ -55,8 +73,22 @@ public class BillingController {
 	}
 
 	@PostMapping("/updatebill")
-	public String updateBill(@ModelAttribute("updatebill") Billing thebill) {
-		billservice.save(thebill);
+	public String updateBill(@RequestParam("productImage") MultipartFile file, Billing bill,
+	@RequestParam("imgName") String imgName)throws IOException
+	{
+		bill.setBillamount(bill.getBillamount());
+		bill.setBilldate(bill.getBilldate());
+		bill.setBillid(bill.getBillid());
+		bill.setUserid(bill.getUserid());
+		String imageUUID;
+		if (!file.isEmpty()) {
+			imageUUID = file.getOriginalFilename();
+			Path fileAndPathName = Paths.get(uploadDir, imageUUID);
+			Files.write(fileAndPathName, file.getBytes());
+		} else {
+			imageUUID = imgName;
+		}
+		bill.setPescriptionimg(imageUUID);
 		return "redirect:/bill/billlist";
 	}
 
