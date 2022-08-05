@@ -34,7 +34,7 @@ public class MedicineController {
 		public String findMedicineById(@RequestParam("Id") int id,Model model) {
 		  Medicine themed=medservice.findById(id);
 	    	model.addAttribute("findmedbyid", themed);
-			return "find-user-id-form";
+			return "find-med-id-form";
 		}
 	  @GetMapping("/addmedform")
 		public String showAddForm(Model model)
@@ -71,7 +71,7 @@ public class MedicineController {
 		public String showUpdateForm(@RequestParam("Id") int id,Model model)
 		{
 	    	Medicine themed=medservice.findById(id);
-			model.addAttribute("updateuser", themed);
+			model.addAttribute("updatemed", themed);
 			return "update-med-form";
 		}
 	    @PostMapping("/updatemed")

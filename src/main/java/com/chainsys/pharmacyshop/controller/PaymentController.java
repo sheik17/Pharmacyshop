@@ -55,7 +55,7 @@ public class PaymentController {
 		return "update-payment-form";
 	}
 
-	@PostMapping("/updatepayment")
+	@PostMapping("/updatepayments")
 	public String updateMed(@ModelAttribute("updatepayment") Payment thepayment) {
 		payservice.save(thepayment);
 		return "redirect:/payment/paymentlist";

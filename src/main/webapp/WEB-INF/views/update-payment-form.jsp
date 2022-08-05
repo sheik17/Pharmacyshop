@@ -11,7 +11,7 @@
 <body>
     <div id="root">
         <div id="form">
-            <form:form action="updatepayment" method="post" modelAttribute="updatepayment">
+            <form:form action="updatepayments" method="post" modelAttribute="updatepayment">
              <div>
 					<label for="userid">UserId</label>
 					<div>

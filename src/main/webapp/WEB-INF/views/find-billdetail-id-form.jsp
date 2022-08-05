@@ -11,7 +11,7 @@
 <body>
     <div id="root">
         <div id="form">
-            <form:form action="" method="post" modelAttribute="findbilldetailbyid">
+            <form:form action="" method="post" modelAttribute="findbillbyid">
            <div>
 					<label for="billid">Bill_Id</label>
 					<div>

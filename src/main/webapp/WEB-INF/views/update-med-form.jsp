@@ -49,9 +49,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="pescription_req">Pescription_Req</label>
+					<label for="pescriptionreq">Pescription_Req</label>
 					<div>
-						<form:input path="pescription_req" />
+						<form:input path="pescriptionreq" />
 					</div>
 				</div>
 				<div>

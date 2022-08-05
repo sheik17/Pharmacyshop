@@ -44,7 +44,7 @@ public class BillingDetailsController {
 	@PostMapping("/addbilldetail")
 	public String addNewUser(@ModelAttribute("addbilldetail") BillDetails billdetaillist) {
 		billdetailservice.save(billdetaillist);
-		return "redirect:/billdetails/billdetaillist";
+		return "redirect:/billdetail/billdetaillist";
 	}
 
 	@GetMapping("/updatebilldetailform")
@@ -57,12 +57,12 @@ public class BillingDetailsController {
 	@PostMapping("/updatebilldetail")
 	public String updateBill(@ModelAttribute("updatebilldetail") BillDetails billdetaillist) {
 		billdetailservice.save(billdetaillist);
-		return "redirect:/billdetails/billdetaillist";
+		return "redirect:/billdetail/billdetaillist";
 	}
 
 	@GetMapping("/deletebilldetail")
 	public String deleteBill(@RequestParam("Id") int id) {
 		billdetailservice.deleteById(id);
-		return "redirect:/billdetails/billdetaillist";
+		return "redirect:/billdetail/billdetaillist";
 	}
 }

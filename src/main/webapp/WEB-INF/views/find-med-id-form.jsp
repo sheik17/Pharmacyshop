@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -9,10 +9,10 @@
 <title>Find Medicine</title>
 </head>
 <body>
-    <div id="root">
-        <div id="form">
-            <form:form action="" method="post" modelAttribute="findmedbyid">
-              <div>
+	<div id="root">
+		<div id="form">
+			<form:form action="" object="medicine" enctype="multipart/form-data" modelAttribute="findmedbyid">
+				<div>
 					<label for="medicineid">Medicine Id</label>
 					<div>
 						<form:input path="medicineid" />
@@ -61,13 +61,13 @@
 					</div>
 				</div>
 				<div>
-					<label for='medicine_img'>Medicine_Img <input
-						name='medicine_img' placeholder='file' type='file'
-						accept='image/*'>
-					</label>
+					<label for="medicineimg">medicineimg</label>
+					<div>
+						<form:input path="medicineimg" />
+					</div>
 				</div>
-			</form:form>
-		</div>
+				</form:form>
+		</div>		
 	</div>
 </body>
 </html>

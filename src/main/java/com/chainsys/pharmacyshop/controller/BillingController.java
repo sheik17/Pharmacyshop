@@ -28,7 +28,7 @@ public class BillingController {
 	@GetMapping("/billlist")
 	public String getBillAll(Model model) {
 		List<Billing> billlist = billservice.findAll();
-		model.addAttribute(" ", billlist);
+		model.addAttribute("allbill", billlist);
 		return "list-bills";
 	}
 
@@ -62,7 +62,8 @@ public class BillingController {
 			imageUUID = imgName;
 		}
 		bill.setPescriptionimg(imageUUID);
-		return "redirect:/bill/billlist";
+		billservice.save(bill);
+		return "redirect:/billing/billlist";
 	}
 
 	@GetMapping("/updatebillform")
@@ -89,12 +90,13 @@ public class BillingController {
 			imageUUID = imgName;
 		}
 		bill.setPescriptionimg(imageUUID);
-		return "redirect:/bill/billlist";
+		billservice.save(bill);
+		return "redirect:/billing/billlist";
 	}
 
 	@GetMapping("/deletebill")
 	public String deleteBill(@RequestParam("Id") int id) {
 		billservice.deleteById(id);
-		return "redirect:/bill/billlist";
+		return "redirect:/billing/billlist";
 	}
 }
