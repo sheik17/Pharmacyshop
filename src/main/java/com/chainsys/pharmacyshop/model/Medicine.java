@@ -2,10 +2,13 @@ package com.chainsys.pharmacyshop.model;
 
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,7 +33,15 @@ public class Medicine {
 	private long stocks;
 	@Column(name="MEDICINE_IMG")
     private String medicineimg;
+	@OneToMany(mappedBy="med", fetch= FetchType.LAZY)
+	private List<BillDetails> billdetail;
 	
+	public List<BillDetails> getBilldetail() {
+		return billdetail;
+	}
+	public void setBilldetail(List<BillDetails> billdetail) {
+		this.billdetail = billdetail;
+	}
 	public int getMedicineid() {
 		return medicineid;
 	}

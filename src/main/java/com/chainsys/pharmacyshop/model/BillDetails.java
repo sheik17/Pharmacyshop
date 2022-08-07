@@ -3,7 +3,10 @@ package com.chainsys.pharmacyshop.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +23,26 @@ public class BillDetails {
 	private float price;
 	@Column(name="AMOUNT")
 	private float amount;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="MEDICINE_ID",nullable=false, insertable=false, updatable=false)
+	private Medicine med;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="BILL_ID",nullable=false, insertable=false, updatable=false)
+	private Billing bill;
+	
+	public Billing getBill() {
+		return bill;
+	}
+	public void setBill(Billing bill) {
+		this.bill = bill;
+	}
+	public Medicine getMed() {
+		return med;
+	}
+	public void setMed(Medicine med) {
+		this.med = med;
+	}
+	
 	public int getBillid() {
 		return billid;
 	}

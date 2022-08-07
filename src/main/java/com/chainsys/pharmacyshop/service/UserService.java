@@ -12,21 +12,24 @@ import com.chainsys.pharmacyshop.repository.UserRepository;
 public class UserService {
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	public User findById(int id) {
 		return userRepository.findById(id);
 	}
-	
+
 	public User deleteById(int userid) {
 		return userRepository.deleteById(userid);
 	}
-	
+
 	public void save(User user) {
 		userRepository.save(user);
 	}
-	
+
 	public List<User> findAll() {
-		
+
 		return userRepository.findAll();
+	}
+	public User getUserNameAndUserPasswordAndRole(String userName, String userPassword,String role) {
+		return userRepository.findByUserNameAndUserPasswordAndRole(userName, userPassword,role);
 	}
 }

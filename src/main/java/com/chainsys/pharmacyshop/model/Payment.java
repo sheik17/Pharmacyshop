@@ -4,7 +4,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +27,24 @@ public class Payment {
 	private int paymentid;
 	@Column(name="PAYMENT_DATE")
 	private Date paymentdate;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="USER_ID",nullable=false, insertable=false, updatable=false)
+	private User users;
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="BILL_ID",nullable=false, insertable=false, updatable=false)
+	private Billing bills;
+	public Billing getBills() {
+		return bills;
+	}
+	public void setBills(Billing bills) {
+		this.bills = bills;
+	}
+	public User getUsers() {
+		return users;
+	}
+	public void setUsers(User users) {
+		this.users = users;
+	}
 	public int getUserid() {
 		return userid;
 	}

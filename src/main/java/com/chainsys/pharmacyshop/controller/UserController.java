@@ -19,45 +19,68 @@ import com.chainsys.pharmacyshop.service.UserService;
 public class UserController {
 	@Autowired
 	UserService userservice;
+
 	@GetMapping("/userlist")
 	public String getUserAll(Model model) {
 		List<User> doclist = userservice.findAll();
-		model.addAttribute("alluser",doclist); 
+		model.addAttribute("alluser", doclist);
 		return "list-users";
 	}
-	  @GetMapping("/findUserid")
-		public String findUserById(@RequestParam("Id") int id,Model model) {
-		  User thedoc=userservice.findById(id);
-	    	model.addAttribute("finduserbyid", thedoc);
-			return "find-user-id-form";
-		}
-	  @GetMapping("/adduserform")
-		public String showAddForm(Model model)
-		{
-		  User thedoc=new User();
-			model.addAttribute("adduser", thedoc);
-			return "add-user-form";
-		}
-	    @PostMapping("/adduser")
-		public String addNewUser(@ModelAttribute("adduser") User theuser) {
-	    	userservice.save(theuser);
-			return "redirect:/user/userlist";
-		}
-	    @GetMapping("/updateuserform")
-		public String showUpdateForm(@RequestParam("Id") int id,Model model)
-		{
-			User theuser=userservice.findById(id);
-			model.addAttribute("updateuser", theuser);
-			return "update-user-form";
-		}
-	    @PostMapping("/updateuser")
-		public String updateUser(@ModelAttribute("updateuser") User theuser) {
-	    	userservice.save(theuser);
-			return "redirect:/user/userlist";
-		}
-	    @GetMapping("/deleteuser")
-		public String deleteUser(@RequestParam("Id") int id) {
-	    	userservice.deleteById(id);
-			return "redirect:/user/userlist";
-		}
+
+	@GetMapping("/findUserid")
+	public String findUserById(@RequestParam("Id") int id, Model model) {
+		User thedoc = userservice.findById(id);
+		model.addAttribute("finduserbyid", thedoc);
+		return "find-user-id-form";
 	}
+
+	@GetMapping("/adduserform")
+	public String showAddForm(Model model) {
+		User thedoc = new User();
+		model.addAttribute("adduser", thedoc);
+		return "add-user-form";
+	}
+
+	@PostMapping("/adduser")
+	public String addNewUser(@ModelAttribute("adduser") User theuser) {
+		userservice.save(theuser);
+		return "redirect:/user/userlist";
+	}
+
+	@GetMapping("/updateuserform")
+	public String showUpdateForm(@RequestParam("Id") int id, Model model) {
+		User theuser = userservice.findById(id);
+		model.addAttribute("updateuser", theuser);
+		return "update-user-form";
+	}
+
+	@PostMapping("/updateuser")
+	public String updateUser(@ModelAttribute("updateuser") User theuser) {
+		userservice.save(theuser);
+		return "redirect:/user/userlist";
+	}
+
+	@GetMapping("/deleteuser")
+	public String deleteUser(@RequestParam("Id") int id) {
+		userservice.deleteById(id);
+		return "redirect:/user/userlist";
+	}
+
+	@GetMapping("/login")
+	public String adminaccessform(Model model) {
+		User theuser = new User();
+		model.addAttribute("user", theuser);
+		return "login-form";
+	}
+
+	@PostMapping("/checkuserlogin")
+	public String checkingAccess(@ModelAttribute("user") User user) {
+		User users = userservice.getUserNameAndUserPasswordAndRole(user.getUserName(), user.getUserPassword(),user.getRole());
+		if (users != null) {
+
+			return "redirect:/user/userlist";
+		} else
+			return "invalid-user-error";
+
+	}
+}
