@@ -21,13 +21,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="billing" items="${allbill}">
+				<c:forEach var="billing" items="${fetchAllUserById}">
 					<!--var represents variable items represents collection  -->
 					<tr>
 						<td>${billing.billid}</td>
 						<td>${billing.userId}</td>
 						<td>${billing.billdate}</td>
 						<td><img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/presImg/${billing.pescriptionimg}" width="100" height="100"></td>
+						<td>${billing.pescriptionimg}</td>
 						<td>${billing.billamount}</td>
 					</tr>
 				</c:forEach>

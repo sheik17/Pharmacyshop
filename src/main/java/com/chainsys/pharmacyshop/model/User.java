@@ -1,13 +1,18 @@
 package com.chainsys.pharmacyshop.model;
 
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "Med_Users")
@@ -15,18 +20,34 @@ public class User {
 	@Id
 	@Column(name="USER_ID")
 	private int userId;
+	
 	@Column(name="USER_NAME")
+	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
+	@NotBlank(message = "*Name can't be Empty")
+	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String userName;
+	
 	@Column(name="USER_PASSWORD")
+	@Size(max = 20, min = 8, message = "*Minimum eight characters ")
+    @NotBlank(message = "*Secretword can't be Empty")
+    @Pattern(regexp = "^(?=.[A-Za-z])(?=.\\d)(?=.[@$!%#?&])[A-Za-z\\d@$!%*#?&]{8,}$", message = "*at least one letter, one number and one special character ")
 	private String userPassword;
+	
 	@Column(name="PHONE_NO")
+	//@Range(min = 10,max= 10, message = "phone_no should be exact 10 characters." )
 	private long phoneNo;
+	
 	@Column(name="EMAIL")
+	@Email(message = "*Email is not valid")
+	@NotEmpty(message = "*Please enter email")
 	private String email;
+	
 	@Column(name="ROLE")
 	private String role;
+	
 	@OneToMany(mappedBy="user", fetch= FetchType.LAZY)
 	private List<Billing> bill;
+	
 	@OneToMany(mappedBy="users", fetch= FetchType.LAZY)
 	private List<Payment> payment;
 	

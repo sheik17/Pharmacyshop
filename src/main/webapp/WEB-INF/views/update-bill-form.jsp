@@ -19,9 +19,9 @@
 					</div>
 				</div>
 				<div>
-					<label for=userid>User_Id</label>
+					<label for=userId>User_Id</label>
 					<div>
-						<form:input path="userid" />
+						<form:input path="userId" />
 					</div>
 				</div>
 				<div>

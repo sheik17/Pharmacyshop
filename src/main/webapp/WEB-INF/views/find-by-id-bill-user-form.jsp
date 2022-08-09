@@ -11,7 +11,7 @@
 <body>
     <div id="root">
         <div id="form">
-            <form:form action="" method="post" modelAttribute="findbillbyid">
+            <form:form action="" method="post" modelAttribute="fetchByBillId">
            <div>
 					<label for="billid">Bill_Id</label>
 					<div>
@@ -45,9 +45,9 @@
 			</form:form>
 		</div>
 	</div>
-	<div id="root">
+	<div id="root" class="box">
         <div id="form">
-            <form:form action="" method="post" modelAttribute="fetchStaffUserById">
+            <form:form action="" method="post" modelAttribute="fetchUserById">
                 <div>
                     <label for="userId">User Id</label>
                     <div>
@@ -63,7 +63,7 @@
                 <div>
                     <label for="userPassword">Password</label>
                     <div>
-                        <form:input path="userPassword" />
+                        <form:input type="password" path="userPassword" />
                     </div>
                 </div>
                 <div>
@@ -81,9 +81,13 @@
                 <div>
                     <label for="role">Role</label>
                     <div>
-                        <form:input path="role" />
-                    </div>
-                </div>
+						<td><form:select path="role">
+								<form:errors path="role" />
+								<form:option value="user">User</form:option>
+							</form:select></td>
+					</div>
+                </div><br>
+                <form:button id="log">Sign Up</form:button>
             </form:form>
         </div>
     </div>

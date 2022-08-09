@@ -22,7 +22,7 @@ public class Billing {
 		@Column(name="BILL_ID")
 		private int billid;
 		@Column(name="USER_ID")
-		private int userid;   
+		private int userId;   
 		@Column(name="BILL_DATE")
 		private Date billdate;
 		@Column(name="PESCRIPTION_IMG")
@@ -62,11 +62,11 @@ public class Billing {
 		public void setBillid(int billid) {
 			this.billid = billid;
 		}
-		public int getUserid() {
-			return userid;
+		public int getUserId() {
+			return userId;
 		}
-		public void setUserid(int userid) {
-			this.userid = userid;
+		public void setUserId(int userId) {
+			this.userId = userId;
 		}
 		public Date getBilldate() {
 			return billdate;

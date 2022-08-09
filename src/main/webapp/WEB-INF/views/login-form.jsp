@@ -9,15 +9,18 @@
 <title>Login</title>
 <style type="text/css">
 body {
-	background: #456;
+	background-image: url("https://omsi.in/wp-content/uploads/2018/04/Online-Medical-store-Jehanabad.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
 }
 
 h1 {
-	color: #fff;
+	color: #2F4F4F;
 }
 
 label {
-	color: #fff;
+	color: #2F4F4F;
 	font-size: 1.3em;
 	display: flex;
 	margin: 5px;
@@ -43,7 +46,7 @@ label {
 }
 
 #role {
-	width: 250px;
+	width: 260px;
 	height: 30px;
 	border: none;
 	border-radius: 3px;
@@ -54,8 +57,8 @@ label {
 	width: 250px;
 	height: 30px;
 	border: none;
-	border-radius: 12px;
-	padding-left: 7px;
+	border-radius: 3px;
+	padding-left: 8px;
 	color: blue;
 }
 
@@ -63,19 +66,18 @@ label {
 	width: 400px;
 	height: 240px;
 	overflow: hidden;
-	background:
-		url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38")
-		no-repeat center/cover;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
 	margin: auto;
 	padding: 10px;
 	text-align: center;
+	background-color: #A9A9A9;
 }
 </style>
 </head>
 <body>
 	<h1 align="center">User Login</h1>
+	<br>
 	<div id="root" class="box">
 		<div id="form" align="center">
 			<table>
@@ -96,15 +98,21 @@ label {
 								<td><form:input type="password" path="userPassword"
 										class="form-control" /></td>
 							</div>
-						</div><br>
+						</div>
+						<br>
 					</tr>
 					<tr>
 						<div>
 							<td><label for="role">Role</label></td>
 							<div>
-								<td><form:input path="role" class="form-control" /></td>
-							</div>
-						</div><br>
+                                <td><form:select path="role">
+                                <form:errors path="role" />
+                                        <form:option value="admin">Admin</form:option>
+                                        <form:option value="user">User</form:option>
+                                    </form:select></td>
+                                    </div>
+                            </div>
+						<br>
 					</tr>
 					<tr>
 						<div>

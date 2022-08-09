@@ -17,12 +17,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.chainsys.pharmacyshop.model.Billing;
 import com.chainsys.pharmacyshop.service.BillingService;
+import com.chainsys.pharmacyshop.service.UserService;
 
 @Controller
 @RequestMapping("/billing")
 public class BillingController {
 	@Autowired
 	BillingService billservice;
+	@Autowired
+	UserService userservice;
 	public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/presImg";
 
 	@GetMapping("/billlist")
@@ -52,7 +55,7 @@ public class BillingController {
 		bill.setBillamount(bill.getBillamount());
 		bill.setBilldate(bill.getBilldate());
 		bill.setBillid(bill.getBillid());
-		bill.setUserid(bill.getUserid());
+		bill.setUserId(bill.getUserId());
 		String imageUUID;
 		if (!file.isEmpty()) {
 			imageUUID = file.getOriginalFilename();
@@ -80,7 +83,7 @@ public class BillingController {
 		bill.setBillamount(bill.getBillamount());
 		bill.setBilldate(bill.getBilldate());
 		bill.setBillid(bill.getBillid());
-		bill.setUserid(bill.getUserid());
+		bill.setUserId(bill.getUserId());
 		String imageUUID;
 		if (!file.isEmpty()) {
 			imageUUID = file.getOriginalFilename();
@@ -98,5 +101,20 @@ public class BillingController {
 	public String deleteBill(@RequestParam("Id") int id) {
 		billservice.deleteById(id);
 		return "redirect:/billing/billlist";
+	}
+	@GetMapping("/getbilluser")
+	public String getBillUserStaffById(@RequestParam("billid") int billid, Model model) {
+		Billing bill = billservice.getbilling(billid);
+		model.addAttribute("fetchByBillId", bill);
+		model.addAttribute("fetchUserById", userservice.findById(bill.getUserId()));
+		return "find-by-id-bill-user-form";
+	}
+
+
+	@GetMapping("/listbillusers")
+	public String listBillUserById(@RequestParam("userId") int userId, Model model) {
+		List<Billing> bill = billservice.fetchAllByUserId(userId);
+		model.addAttribute("fetchAllUserById", bill);
+		return "find-by-bill-user-form";
 	}
 }

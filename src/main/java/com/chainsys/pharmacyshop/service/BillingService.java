@@ -30,4 +30,12 @@ public class BillingService {
 		
 		return medRepo.findAll();
 	}
+	public Billing getbilling(int userId) {
+		return medRepo.findByUserId(userId);
+	}
+
+	public List<Billing> fetchAllByUserId(int userId) {
+		List<Billing> billing = medRepo.findAllByUserId(userId);
+		return billing;
+	}
 }

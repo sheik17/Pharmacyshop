@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,11 @@ import com.chainsys.pharmacyshop.service.UserService;
 public class UserController {
 	@Autowired
 	UserService userservice;
-
+	@GetMapping("/index")
+	public String index()
+	{
+		return "index";
+	}
 	@GetMapping("/userlist")
 	public String getUserAll(Model model) {
 		List<User> doclist = userservice.findAll();
@@ -42,9 +47,12 @@ public class UserController {
 	}
 
 	@PostMapping("/adduser")
-	public String addNewUser(@ModelAttribute("adduser") User theuser) {
+	public String addNewUser(@ModelAttribute("adduser") User theuser,Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-user-form";
+		}
 		userservice.save(theuser);
-		return "redirect:/user/userlist";
+		return "redirect:/user/login";
 	}
 
 	@GetMapping("/updateuserform")

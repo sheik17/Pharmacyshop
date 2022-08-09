@@ -7,9 +7,28 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Medicine List</title>
+<style type="text/css">
+body {
+	background-image: linear-gradient(to right bottom, #b91eda, #a02ae0, #8234e5, #5d3be8,
+		#1241eb);
+	height: 100%;
+	margin: auto;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.table {
+	box-shadow: 0 6px 6px rgba(#000, 0.3);
+	transition: 200ms;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	padding: 30px 40px;
+}
+</style>
 </head>
 <body>
-	<div id="table root">
+	<div id="table">
 		<table>
 			<thead>
 				<tr>
@@ -36,7 +55,9 @@
 						<td>${medicine.expdate}</td>
 						<td>${medicine.pescriptionreq}</td>
 						<td>${medicine.stocks}</td>
-						<td><img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}" width="100" height="100"></td>
+						<td><img
+							src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}"
+							width="100" height="100"></td>
 					</tr>
 				</c:forEach>
 			</tbody>
