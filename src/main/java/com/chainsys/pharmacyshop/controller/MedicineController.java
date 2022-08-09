@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.chainsys.pharmacyshop.dto.MedicineBilldetailDTO;
+import com.chainsys.pharmacyshop.dto.UserPaymentDTO;
 import com.chainsys.pharmacyshop.model.Medicine;
 import com.chainsys.pharmacyshop.repository.MedicineRepository;
 import com.chainsys.pharmacyshop.service.MedicineService;
@@ -102,4 +105,11 @@ public class MedicineController {
 	    	medservice.deleteById(id);
 			return "redirect:/medicine/medlist";
 		}
+	    @GetMapping("/getlistmedicinedetail")
+	    public String getBillDetailMedicine(@RequestParam("id") int id, Model model) {
+	        MedicineBilldetailDTO medicinebilldto = medservice.getMedicineBillDetail(id);
+	        model.addAttribute("getmed", medicinebilldto.getMed());
+	        model.addAttribute("billdetaillist", medicinebilldto.getBillDetailList());
+	        return "list-medicine-billdetail";
+	    }
 }

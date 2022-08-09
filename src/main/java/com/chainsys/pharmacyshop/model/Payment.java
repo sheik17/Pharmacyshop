@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "Payments")
 public class Payment {
 	@Column(name="USER_ID")
-	private int userid;
+	private int userId;
 	@Column(name="MODEOFPAYMENT")
 	private String modeofpayment;
 	@Column(name="BALANCE")
@@ -45,11 +45,11 @@ public class Payment {
 	public void setUsers(User users) {
 		this.users = users;
 	}
-	public int getUserid() {
-		return userid;
+	public int getUserId() {
+		return userId;
 	}
-	public void setUserid(int userid) {
-		this.userid = userid;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public String getModeofpayment() {
 		return modeofpayment;

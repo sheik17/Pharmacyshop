@@ -16,7 +16,5 @@ public interface BillingRepository extends CrudRepository<Billing, Integer>{
 
 	List<Billing> findAll();
 	
-	Billing findByUserId(int userId);
-
 	List<Billing> findAllByUserId(int userId);
 }

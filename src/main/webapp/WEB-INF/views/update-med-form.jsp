@@ -39,13 +39,13 @@
 				<div>
 					<label for="manufacture">ManuFactureDate</label>
 					<div>
-						<form:input path="manufacture" />
+						<form:input path="manufacture" type="date" />
 					</div>
 				</div>
 				<div>
 					<label for="expdate">Exp_Date</label>
 					<div>
-						<form:input path="expdate" />
+						<form:input path="expdate" type="date" />
 					</div>
 				</div>
 				<div>

@@ -13,9 +13,9 @@
 		<div id="form">
 			<form:form action="addpayment" method="post" modelAttribute="addpayment">
 				<div>
-					<label for="userid">UserId</label>
+					<label for="userId">UserId</label>
 					<div>
-						<form:input path="userid" />
+						<form:input path="userId" />
 					</div>
 				</div>
 				<div>
@@ -45,7 +45,7 @@
 				<div>
 					<label for="paymentdate">PaymentDate</label>
 					<div>
-						<form:input path="paymentdate" />
+						<form:input path="paymentdate" type="date" />
 					</div>
 				</div>
 				<form:button>Add new</form:button>

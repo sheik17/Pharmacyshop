@@ -24,11 +24,11 @@ public class Medicine {
 	@Column(name="PRICE")
 	private float price;
 	@Column(name="EXP_DATE")
-	Date expdate;
+	private Date expdate;
 	@Column(name="PESCRIPTION_REQ")
 	private String pescriptionreq;
 	@Column(name="MANUFACTURE")
-	Date manufacture;
+	private Date manufacture;
 	@Column(name="STOCKS")
 	private long stocks;
 	@Column(name="MEDICINE_IMG")

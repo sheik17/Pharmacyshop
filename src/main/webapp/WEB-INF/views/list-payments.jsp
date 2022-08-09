@@ -26,7 +26,7 @@
 					<!--var represents variable items represents collection  -->
 					<tr>
 						<td>${payment.paymentid}</td>
-						<td>${payment.userid}</td>
+						<td>${payment.userId}</td>
 						<td>${payment.modeofpayment}</td>
 						<td>${payment.balance}</td>
 						<td>${payment.billid}</td>

@@ -16,4 +16,6 @@ public interface PaymentRepository extends CrudRepository<Payment, Integer>{
 	Payment deleteById(int userid);
 
 	List<Payment> findAll();
+	
+	List<Payment> findAllByUserId(int userId);
 }

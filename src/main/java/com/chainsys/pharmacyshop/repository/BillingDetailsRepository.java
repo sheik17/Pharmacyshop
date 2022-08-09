@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 import com.chainsys.pharmacyshop.model.BillDetails;
+import com.chainsys.pharmacyshop.model.Medicine;
 
 
 public interface BillingDetailsRepository extends CrudRepository<BillDetails, Integer>{
@@ -15,4 +16,6 @@ public interface BillingDetailsRepository extends CrudRepository<BillDetails, In
 	BillDetails deleteById(int billid);
 
 	List<BillDetails> findAll();
+	
+	List<BillDetails> findAllByMedicineid(int medId);
 }

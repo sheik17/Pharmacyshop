@@ -27,7 +27,7 @@
 				<div>
 					<label for="billdate">Bill_Date</label>
 					<div>
-						<form:input path="billdate" />
+						<form:input path="billdate" type="date" />
 					</div>
 				</div>
 				<div>

@@ -13,6 +13,7 @@ import com.chainsys.pharmacyshop.repository.BillingRepository;
 public class BillingService {
 	@Autowired
 	private BillingRepository medRepo;
+
 	
 	public Billing findById(int id) {
 		return medRepo.findById(id);
@@ -30,10 +31,7 @@ public class BillingService {
 		
 		return medRepo.findAll();
 	}
-	public Billing getbilling(int userId) {
-		return medRepo.findByUserId(userId);
-	}
-
+	
 	public List<Billing> fetchAllByUserId(int userId) {
 		List<Billing> billing = medRepo.findAllByUserId(userId);
 		return billing;

@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Find Medicine</title>
+<title>Add Medicine</title>
 </head>
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="" object="medicine" enctype="multipart/form-data" modelAttribute="findmedbyid">
+			<form:form action="addmed" method="post" object="product" enctype="multipart/form-data" modelAttribute="getmed">
 				<div>
 					<label for="medicineid">Medicine Id</label>
 					<div>
@@ -45,7 +45,7 @@
 				<div>
 					<label for="expdate">Exp_Date</label>
 					<div>
-						<form:input path="expdate" type="date" />
+						<form:input path="expdate" type="date"/>
 					</div>
 				</div>
 				<div>
@@ -60,14 +60,45 @@
 						<form:input path="stocks" />
 					</div>
 				</div>
-				<div>
-					<label for="medicineimg">medicineimg</label>
-					<div>
-						<form:input path="medicineimg" />
+				<div class="col-sm-5">
+					<p>Product Image</p>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" name="productImage"
+							accept="image/jpeg, image/png ,image/jpg" id="productImage" /> <label
+							class="custom-file-label" for=productImage>Choosefile</label>
 					</div>
 				</div>
-				</form:form>
-		</div>		
+				<input type="hidden" name="imgName"
+					value="product.medicineImg">
+				<form:button type="submit" class="btn btn-primary">Add Medicines</form:button>
+			</form:form>
+		</div>
+	</div>
+	<br>
+	<div id="table root">
+		<table>
+			<thead>
+				<tr>
+					<th>Bill_Id</th>
+					<th>Medicine_Id</th>
+					<th>Quantity</th>
+					<th>Price</th>
+					<th>Amount</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="billdetail" items="${billdetaillist}">
+					<!--var represents variable items represents collection  -->
+					<tr>
+						<td>${billdetail.billid}</td>
+						<td>${billdetail.medicineid}</td>
+						<td>${billdetail.quantity}</td>
+						<td>${billdetail.price}</td>
+						<td>${billdetail.amount}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>

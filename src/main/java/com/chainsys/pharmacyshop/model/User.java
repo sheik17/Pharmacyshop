@@ -30,7 +30,7 @@ public class User {
 	@Column(name="USER_PASSWORD")
 	@Size(max = 20, min = 8, message = "*Minimum eight characters ")
     @NotBlank(message = "*Secretword can't be Empty")
-    @Pattern(regexp = "^(?=.[A-Za-z])(?=.\\d)(?=.[@$!%#?&])[A-Za-z\\d@$!%*#?&]{8,}$", message = "*at least one letter, one number and one special character ")
+  //  @Pattern(regexp = "^(?=.[A-Za-z])(?=.\\d)(?=.[@$!%#?&])[A-Za-z\\d@$!%*#?&]{8,}$", message = "*at least one letter, one number and one special character ")
 	private String userPassword;
 	
 	@Column(name="PHONE_NO")
