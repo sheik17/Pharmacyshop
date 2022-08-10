@@ -12,7 +12,13 @@
 	<div id="root">
 		<div id="form">
 			<form:form action="addbill" method="post" object="bill"
-				enctype="multipart/form-data" modelAttribute="addbill">
+				enctype="multipart/form-data" modelAttribute="getbill">
+				<div>
+					<label for="billid">Bill_Id</label>
+					<div>
+						<form:input path="billid" />
+					</div>
+				</div>
 				<div>
 					<label for=userId>User_Id</label>
 					<div>
@@ -45,6 +51,32 @@
 				<form:button type="submit" class="btn btn-primary">Add Medicines</form:button>
 			</form:form>
 		</div>
+	</div>
+	<br>
+	<div id="table root">
+		<table>
+			<thead>
+				<tr>
+					<th>Bill_Id</th>
+					<th>Medicine_Id</th>
+					<th>Quantity</th>
+					<th>Price</th>
+					<th>Amount</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="billdetail" items="${billdetaillist}">
+					<!--var represents variable items represents collection  -->
+					<tr>
+						<td>${billdetail.billid}</td>
+						<td>${billdetail.medicineid}</td>
+						<td>${billdetail.quantity}</td>
+						<td>${billdetail.price}</td>
+						<td>${billdetail.amount}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>

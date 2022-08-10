@@ -1,17 +1,20 @@
 package com.chainsys.pharmacyshop.model;
 
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
@@ -19,6 +22,8 @@ import javax.persistence.Table;
 @Table(name="Billing")
 public class Billing {
 		@Id
+		@GeneratedValue(strategy = GenerationType.AUTO, generator = "BILL_ID_REF")
+		@SequenceGenerator(name = "BILL_ID_REF", sequenceName = "BILL_ID_REF", allocationSize = 1)
 		@Column(name="BILL_ID")
 		private int billid;
 		@Column(name="USER_ID")

@@ -1,39 +1,70 @@
 package com.chainsys.pharmacyshop.service;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.chainsys.pharmacyshop.dto.BillToBillDetailDTO;
+import com.chainsys.pharmacyshop.dto.BillToPaymentDTO;
+import com.chainsys.pharmacyshop.dto.MedicineBilldetailDTO;
+import com.chainsys.pharmacyshop.model.BillDetails;
 import com.chainsys.pharmacyshop.model.Billing;
+import com.chainsys.pharmacyshop.model.Medicine;
+import com.chainsys.pharmacyshop.model.Payment;
+import com.chainsys.pharmacyshop.repository.BillingDetailsRepository;
 import com.chainsys.pharmacyshop.repository.BillingRepository;
+import com.chainsys.pharmacyshop.repository.PaymentRepository;
 
 
 @Service
 public class BillingService {
 	@Autowired
-	private BillingRepository medRepo;
-
+	private BillingRepository billRepo;
+	@Autowired
+	private BillingDetailsRepository billdetailRepo;
+	@Autowired
+	private PaymentRepository payRepo;
 	
 	public Billing findById(int id) {
-		return medRepo.findById(id);
+		return billRepo.findById(id);
 	}
 	
 	public Billing deleteById(int billid) {
-		return medRepo.deleteById(billid);
+		return billRepo.deleteById(billid);
 	}
 	
 	public void save(Billing bill) {
-		medRepo.save(bill);
+		billRepo.save(bill);
 	}
 	
 	public List<Billing> findAll() {
 		
-		return medRepo.findAll();
+		return billRepo.findAll();
 	}
+	public BillToBillDetailDTO getBillToBillDetail(int id) {
+		Billing bill = findById(id);
+		BillToBillDetailDTO dto = new BillToBillDetailDTO();
+		dto.setBill(bill);
+		List<BillDetails> billdetail = billdetailRepo.findAllByBillid(id);
+		Iterator<BillDetails> itr = billdetail.iterator();
+		while (itr.hasNext()) {
+			dto.addBillDetail((BillDetails) itr.next());
+		}
+		return dto;
+	}
+	public BillToPaymentDTO getBillToPaymentDTO(int id) {
+        Billing bill = billRepo.findById(id);
+        BillToPaymentDTO dto = new BillToPaymentDTO();
+        dto.setBilling(bill);
+        Payment payment = payRepo.findByBillid(id);
+        dto.setPayment(payment);
+        return dto;
+    }
 	
 	public List<Billing> fetchAllByUserId(int userId) {
-		List<Billing> billing = medRepo.findAllByUserId(userId);
+		List<Billing> billing = billRepo.findAllByUserId(userId);
 		return billing;
 	}
 }

@@ -13,12 +13,6 @@
 		<div id="form">
 			<form:form action="addmed" method="post" object="product" enctype="multipart/form-data" modelAttribute="addmed">
 				<div>
-					<label for="medicineid">Medicine Id</label>
-					<div>
-						<form:input path="medicineid" />
-					</div>
-				</div>
-				<div>
 					<label for="medicinename">Medicine Name</label>
 					<div>
 						<form:input path="medicinename" />

@@ -37,12 +37,6 @@
 					</div>
 				</div>
 				<div>
-					<label for="paymentid">PaymentId</label>
-					<div>
-						<form:input path="paymentid" />
-					</div>
-				</div>
-				<div>
 					<label for="paymentdate">PaymentDate</label>
 					<div>
 						<form:input path="paymentdate" type="date" />

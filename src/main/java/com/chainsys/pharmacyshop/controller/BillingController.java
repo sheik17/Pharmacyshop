@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.chainsys.pharmacyshop.dto.BillToBillDetailDTO;
+import com.chainsys.pharmacyshop.dto.BillToPaymentDTO;
 import com.chainsys.pharmacyshop.model.Billing;
 import com.chainsys.pharmacyshop.service.BillingService;
-import com.chainsys.pharmacyshop.service.UserService;
 
 @Controller
 @RequestMapping("/billing")
@@ -100,4 +101,18 @@ public class BillingController {
 		billservice.deleteById(id);
 		return "redirect:/billing/billlist";
 	}
+	 @GetMapping("/getlistbilldetail")
+	    public String getBillDetailBilling(@RequestParam("id") int id, Model model) {
+	        BillToBillDetailDTO billtobilldetaildto = billservice.getBillToBillDetail(id);
+	        model.addAttribute("getbill", billtobilldetaildto.getBill());
+	        model.addAttribute("billdetaillist", billtobilldetaildto.getBillDetailList());
+	        return "list-billing-billdetail";
+	    }
+	 @GetMapping("/getbilltopayment")
+	    public String getBillToPayment(@RequestParam("id") int id, Model model) {
+	        BillToPaymentDTO dto = billservice.getBillToPaymentDTO(id);
+	        model.addAttribute("getbill", dto.getBilling());
+	        model.addAttribute("getpayment", dto.getPayment());
+	        return "list-bill-payment";
+	    }
 }

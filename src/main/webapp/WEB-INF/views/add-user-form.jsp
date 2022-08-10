@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -8,13 +8,15 @@
 <meta charset="ISO-8859-1">
 <title>Sign up</title>
 <style type="text/css">
-<style type="text/css">
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
+<
+style type ="text /css ">.text-danger {
+	color: #e80c4d;
+	font-size: 0.9em;
 }
+
 body {
-	background-image: url("https://st2.depositphotos.com/1003098/8200/i/950/depositphotos_82006754-stock-photo-medicines-arranged-at-pharmacy.jpg");
+	background-image:
+		url("https://st2.depositphotos.com/1003098/8200/i/950/depositphotos_82006754-stock-photo-medicines-arranged-at-pharmacy.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 100%;
@@ -57,6 +59,7 @@ label {
 	border-radius: 3px;
 	padding-left: 8px;
 }
+
 #phoneNo {
 	width: 250px;
 	height: 30px;
@@ -64,6 +67,7 @@ label {
 	border-radius: 3px;
 	padding-left: 8px;
 }
+
 #email {
 	width: 250px;
 	height: 30px;
@@ -71,6 +75,7 @@ label {
 	border-radius: 3px;
 	padding-left: 8px;
 }
+
 #userId {
 	width: 250px;
 	height: 30px;
@@ -78,6 +83,7 @@ label {
 	border-radius: 3px;
 	padding-left: 8px;
 }
+
 #log {
 	width: 250px;
 	height: 30px;
@@ -86,6 +92,7 @@ label {
 	padding-left: 10px;
 	color: blue;
 }
+
 .box {
 	width: 400px;
 	height: 490px;
@@ -100,56 +107,48 @@ label {
 </style>
 </head>
 <body>
-<h1 align="center">Sign Up</h1>
-    <div id="root" class="box">
-        <div id="form">
-            <form:form action="adduser" method="post" modelAttribute="adduser">
-                <div>
-                    <label for="userId">User Id</label>
-                    <div>
-                        <form:input path="userId" />
-                    </div>
-                </div>
-                <div>
-                    <label for="userName">User Name</label>
-                    <div>
-                        <form:input path="userName" />
-                    </div>
-                </div>
-                <form:errors path="userName" cssClass="text-danger" />
-                <div>
-                    <label for="userPassword">Password</label>
-                    <div>
-                        <form:input type="password" path="userPassword" />
-                    </div>
-                </div>
-                <form:errors path="userPassword" cssClass="text-danger" />
-                <div>
-                    <label for="phoneNo">Phone No</label>
-                    <div>
-                        <form:input path="phoneNo" />
-                    </div>
-                <form:errors path="phoneNo" cssClass="text-danger" />
-                  </div>
-                <div>
-                    <label for="email">Email</label>
-                    <div>
-                        <form:input path="email" />
-                    </div>
-                    </div>
-				<form:errors path="email" cssClass="text-danger" />
-              
-                <div>
-                    <label for="role">Role</label>
-                    <div>
+	<h1 align="center">Sign Up</h1>
+	<div id="root" class="box">
+		<div id="form">
+			<form:form action="adduser" method="post" modelAttribute="adduser">
+				<div>
+					<label for="userName">User Name</label>
+					<div>
+						<form:input path="userName" />
+					</div>
+				</div>
+				<div>
+					<label for="userPassword">Password</label>
+					<div>
+						<form:input type="password" path="userPassword" />
+					</div>
+				</div>
+				<form:errors path="userPassword" cssClass="text-danger" />
+				<div>
+					<label for="phoneNo">Phone No</label>
+					<div>
+						<form:input path="phoneNo" />
+					</div>
+				</div>
+				<div>
+					<label for="email">Email</label>
+					<div>
+						<form:input path="email" />
+					</div>
+				</div>
+
+				<div>
+					<label for="role">Role</label>
+					<div>
 						<td><form:select path="role">
 								<form:option value="user">User</form:option>
 							</form:select></td>
 					</div>
-                </div><br>
-                <form:button id="log">Sign Up</form:button>
-            </form:form>
-        </div>
-    </div>
+				</div>
+				<br>
+				<form:button id="log">Sign Up</form:button>
+			</form:form>
+		</div>
+	</div>
 </body>
 </html>

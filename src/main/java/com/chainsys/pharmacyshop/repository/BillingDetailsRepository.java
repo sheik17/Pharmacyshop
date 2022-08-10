@@ -18,4 +18,5 @@ public interface BillingDetailsRepository extends CrudRepository<BillDetails, In
 	List<BillDetails> findAll();
 	
 	List<BillDetails> findAllByMedicineid(int medId);
+	List<BillDetails> findAllByBillid(int billId);
 }

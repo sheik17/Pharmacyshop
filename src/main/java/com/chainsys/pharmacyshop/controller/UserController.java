@@ -49,10 +49,7 @@ public class UserController {
 	}
 
 	@PostMapping("/adduser")
-	public String addNewUser(@ModelAttribute("adduser") User theuser,Errors errors) {
-		if(errors.hasErrors()) {
-			return "add-user-form";
-		}
+	public String addNewUser(@ModelAttribute("adduser") User theuser) {
 		userservice.save(theuser);
 		return "redirect:/user/login";
 	}
@@ -100,10 +97,18 @@ public class UserController {
 	public String checkingAccess(@ModelAttribute("user") User user) {
 		User users = userservice.getUserNameAndUserPasswordAndRole(user.getUserName(), user.getUserPassword(),user.getRole());
 		if (users != null) {
-
+			if(!"admin".equals(users.getRole()))
+			{
 			return "redirect:/user/userlist";
+			}
+			else
+			{
+				return "redirect:/medicine/medlist";
+			}
 		} else
+		{
 			return "invalid-user-error";
+		}
 
 	}
 }

@@ -6,17 +6,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.chainsys.pharmacyshop.model.BillDetails;
-import com.chainsys.pharmacyshop.model.Medicine;
+import com.chainsys.pharmacyshop.model.Billing;
 
-public class MedicineBilldetailDTO {
+public class BillToBillDetailDTO {
 	@Autowired
-    private Medicine med;
-    private List<BillDetails> billdetaillist=new ArrayList<BillDetails>();
-    public Medicine getMed() {
-        return med;
+    private Billing bill;
+    private List <BillDetails> billdetaillist=new ArrayList <BillDetails>();
+    public Billing getBill() {
+        return bill;
     }
-    public void setMed(Medicine med) {
-        this.med = med;
+    public void setBill(Billing bill) {
+        this.bill = bill;
     }
     public List<BillDetails> getBillDetailList() {
         return billdetaillist;
