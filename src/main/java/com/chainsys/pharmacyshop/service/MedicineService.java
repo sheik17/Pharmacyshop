@@ -8,11 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.pharmacyshop.dto.MedicineBilldetailDTO;
-import com.chainsys.pharmacyshop.dto.UserPaymentDTO;
 import com.chainsys.pharmacyshop.model.BillDetails;
 import com.chainsys.pharmacyshop.model.Medicine;
-import com.chainsys.pharmacyshop.model.Payment;
-import com.chainsys.pharmacyshop.model.User;
 import com.chainsys.pharmacyshop.repository.BillingDetailsRepository;
 import com.chainsys.pharmacyshop.repository.MedicineRepository;
 

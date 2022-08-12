@@ -8,10 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.chainsys.pharmacyshop.dto.BillToBillDetailDTO;
 import com.chainsys.pharmacyshop.dto.BillToPaymentDTO;
-import com.chainsys.pharmacyshop.dto.MedicineBilldetailDTO;
 import com.chainsys.pharmacyshop.model.BillDetails;
 import com.chainsys.pharmacyshop.model.Billing;
-import com.chainsys.pharmacyshop.model.Medicine;
 import com.chainsys.pharmacyshop.model.Payment;
 import com.chainsys.pharmacyshop.repository.BillingDetailsRepository;
 import com.chainsys.pharmacyshop.repository.BillingRepository;

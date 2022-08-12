@@ -8,8 +8,14 @@
 <meta charset="ISO-8859-1">
 <title>Login</title>
 <style type="text/css">
+style type ="text /css ">.text-danger {
+	color: #e80c4d;
+	font-size: 0.9em;
+}
+
 body {
-	background-image: url("https://omsi.in/wp-content/uploads/2018/04/Online-Medical-store-Jehanabad.png");
+	background-image:
+		url("https://omsi.in/wp-content/uploads/2018/04/Online-Medical-store-Jehanabad.png");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 100%;
@@ -84,10 +90,14 @@ label {
 				<form:form action="checkuserlogin" method="post"
 					modelAttribute="user">
 					<tr>
+
 						<div>
 							<td><label for="userName">User Name</label></td>
+							<td><form:input path="userName" pattern="^[a-z A-Z]+$"
+								placeholder="Enter Name" title="Please Enter Charactor Only"
+								required="true" /></td>
 							<div>
-								<td><form:input path="userName" class="form-control" /></td>
+								<form:errors path="userName" cssClass="text-danger" />
 							</div>
 						</div>
 					</tr>
@@ -95,30 +105,30 @@ label {
 						<div>
 							<td><label for="userPassword">Password</label></td>
 							<div>
-								<td><form:input type="password" path="userPassword"
-										class="form-control" /></td>
-							</div>
-						</div>
+								<td><form:input type="password" path="userPassword" placeholder="Enter Password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,20}$" title="Enter Valid Password" required="true"/>
+					</td></div>				
+				<form:errors path="userPassword" cssClass="text-danger" />
+				</div>
 						<br>
 					</tr>
 					<tr>
 						<div>
 							<td><label for="role">Role</label></td>
 							<div>
-                                <td><form:select path="role">
-                                <form:errors path="role" />
-                                        <form:option value="admin">Admin</form:option>
-                                        <form:option value="user">User</form:option>
-                                    </form:select></td>
-                                    </div>
-                            </div>
+								<td><form:select path="role">
+										<form:errors path="role" />
+										<form:option value="admin">Admin</form:option>
+										<form:option value="user">User</form:option>
+									</form:select></td>
+							</div>
+						</div>
 						<br>
 					</tr>
 					<tr>
 						<div>
-							<td colspan="5" align="center"><br> <form:button
-									id="log">Login</form:button></td>
-						</div>
+						<td colspan="5" align="center"><br> <form:button
+								id="log">Login</form:button>
+							</div>
 					</tr>
 				</form:form>
 			</table>

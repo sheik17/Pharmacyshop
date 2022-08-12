@@ -18,6 +18,8 @@ import javax.persistence.Table;
 @Table(name="Medicine")
 public class Medicine {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "MEDICINE_ID_REF")
+	@SequenceGenerator(name = "MEDICINE_ID_REF", sequenceName = "MEDICINE_ID_REF", allocationSize = 1)
 	@Column(name="MEDICINE_ID")
 	private int medicineid;
 	@Column(name="MEDICINE_NAME")

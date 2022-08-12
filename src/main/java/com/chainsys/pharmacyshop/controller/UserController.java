@@ -2,6 +2,8 @@ package com.chainsys.pharmacyshop.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,9 +51,14 @@ public class UserController {
 	}
 
 	@PostMapping("/adduser")
-	public String addNewUser(@ModelAttribute("adduser") User theuser) {
+	public String addNewUser(@Valid@ModelAttribute("adduser") User theuser,Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-user-form";
+		}
+		else {
 		userservice.save(theuser);
 		return "redirect:/user/login";
+		}
 	}
 
 	@GetMapping("/updateuserform")
@@ -97,7 +104,7 @@ public class UserController {
 	public String checkingAccess(@ModelAttribute("user") User user) {
 		User users = userservice.getUserNameAndUserPasswordAndRole(user.getUserName(), user.getUserPassword(),user.getRole());
 		if (users != null) {
-			if(!"admin".equals(users.getRole()))
+			if("admin".equals(users.getRole()))
 			{
 			return "redirect:/user/userlist";
 			}

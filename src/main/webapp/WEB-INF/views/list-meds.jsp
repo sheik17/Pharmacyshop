@@ -9,59 +9,127 @@
 <title>Medicine List</title>
 <style type="text/css">
 body {
-	background-image: linear-gradient(to right bottom, #b91eda, #a02ae0, #8234e5, #5d3be8,
-		#1241eb);
-	height: 100%;
-	margin: auto;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
+	background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/blurred_bg2.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
-.table {
-	box-shadow: 0 6px 6px rgba(#000, 0.3);
-	transition: 200ms;
-	background: #fff;
-	display: flex;
-	align-items: center;
-	padding: 30px 40px;
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,600);
+
+$text: #303336;
+$light-text: #8c98a8;
+$button: #49B956;
+$button-hover: #60CF6F;
+.box {
+  font: 13px/23px "Raleway", Arial, sans-serif;
+  color: $text;  
+  padding: 60px 0; 
+   background: white;
+}
+.container {
+  margin: 0 auto;
+  width: 600px;
+  background: #ccccff;
+  border-radius: 3px;
+  position: relative
+}
+.price {
+    position: absolute;
+    left: 35%;
+    color: white;
+    text-align: center;
+    background: rgba(0,153,285,0.8);
+    border-radius: 50%;
+    padding: 19px 33px;
+    font-size: 22px;
+  }
+  .medid {
+      font-size: 16px;
+    color: $light-text;
+    margin-bottom: 28px;
+  }
+
+  .medname {
+    font-size: 16px;
+    color: $light-text;
+    margin-bottom: 28px;
+  }
+
+ .quantity {
+    font-size: 16px;
+    color: $light-text;
+    margin-bottom: 28px;
+  }
+  .manufac {
+    font-size: 16px;
+    color: $light-text;
+    margin-bottom: 28px;
+  }
+   .expdate {
+    font-size: 16px;
+    color: $light-text;
+    margin-bottom: 28px;
+  }
+   .pescription {
+    font-size: 16px;
+    color: $light-text;
+    margin-bottom: 28px;
+  }
+   .stocks {
+    font-size: 16px;
+    color: $light-text;
+    margin-bottom: 28px;
+  }
+  .button {
+    width: 250px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+	color: blue;
 }
 </style>
 </head>
 <body>
-	<div id="table">
-		<table>
-			<thead>
-				<tr>
-					<th>Medicine_Id</th>
-					<th>Medicine_Name</th>
-					<th>Quantity</th>
-					<th>Price</th>
-					<th>Manufacture_Date</th>
-					<th>Exp_Date</th>
-					<th>Pescription_Req</th>
-					<th>Stocks</th>
-					<th>Medicine_Img</th>
-				</tr>
-			</thead>
-			<tbody>
+<br>
+	<div id="box">	<br>
+	<div class="container"><br>
 				<c:forEach var="medicine" items="${allmed}">
+				<br>
 					<!--var represents variable items represents collection  -->
-					<tr>
-						<td>${medicine.medicineid}</td>
-						<td>${medicine.medicinename}</td>
-						<td>${medicine.quantity}</td>
-						<td>${medicine.price}</td>
-						<td>${medicine.manufacture}</td>
-						<td>${medicine.expdate}</td>
-						<td>${medicine.pescriptionreq}</td>
-						<td>${medicine.stocks}</td>
-						<td><img
+					<div class="medid">Medicine_Id
+						<div>${medicine.medicineid}</div>
+						</div>
+						<div class="medname">Medicine_Name
+						<div>${medicine.medicinename}</div>
+						</div>
+						<div class="quantity">Quantity
+						<div>${medicine.quantity}</div>
+						</div>
+						<div class="price">Price
+						<div>${medicine.price}
+						</div>
+						</div>
+						<div class="manufac">Manufacture
+						<div>${medicine.manufacture}</div>
+						</div>
+						<div class="expdate">ExpDate
+						<div>${medicine.expdate}</div>
+						</div>
+						<div class="pescription">PescriptionReq
+						<div>
+						${medicine.pescriptionreq}</div>
+						</div>
+						<div class="stocks">Stocks
+						<div>${medicine.stocks}
+						</div>
+						</div>
+						<div class="image"><img
 							src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}"
-							width="100" height="100"></td>
-					</tr>
+							width="100" height="100"></div>
+							<div>
+						<a href="/billdetail/addbilldetailform" class="button">Purchase Product</a></div>
 				</c:forEach>
-			</tbody>
-		</table>
+		</div>
 	</div>
 </body>
 </html>

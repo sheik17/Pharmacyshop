@@ -22,13 +22,12 @@ public class User {
 	
 	@Column(name = "USER_NAME")
 	private String userName;
-
+	
 	@Column(name = "USER_PASSWORD")
 	private String userPassword;
 
 	@Column(name = "PHONE_NO")
 	private long phoneNo;
-
 	@Column(name = "EMAIL")
 	private String email;
 

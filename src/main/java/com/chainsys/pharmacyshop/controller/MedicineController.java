@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.chainsys.pharmacyshop.dto.MedicineBilldetailDTO;
-import com.chainsys.pharmacyshop.dto.UserPaymentDTO;
 import com.chainsys.pharmacyshop.model.Medicine;
-import com.chainsys.pharmacyshop.repository.MedicineRepository;
 import com.chainsys.pharmacyshop.service.MedicineService;
 
 @Controller
