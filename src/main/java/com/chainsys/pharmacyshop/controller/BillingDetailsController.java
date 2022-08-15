@@ -13,13 +13,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.pharmacyshop.model.BillDetails;
 import com.chainsys.pharmacyshop.service.BillingDetailsService;
+import com.chainsys.pharmacyshop.service.BillingService;
 
 @Controller
 @RequestMapping("/billdetail")
 public class BillingDetailsController {
 	@Autowired
 	BillingDetailsService billdetailservice;
-
+	@Autowired
+	private BillingService billService;
+	
+	@GetMapping("/billcalc")
+	public String getBillCalc(Model model) {
+		BillDetails billdetaillist = new BillDetails();
+		model.addAttribute("inbilldetail", billdetaillist);
+		return "bill-form";
+	}
 	@GetMapping("/billdetaillist")
 	public String getBillDetailsAll(Model model) {
 		List<BillDetails> billdetaillist = billdetailservice.findAll();

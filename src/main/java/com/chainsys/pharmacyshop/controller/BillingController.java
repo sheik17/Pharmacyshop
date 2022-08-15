@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.chainsys.pharmacyshop.dto.BillToBillDetailDTO;
 import com.chainsys.pharmacyshop.dto.BillToPaymentDTO;
 import com.chainsys.pharmacyshop.model.Billing;
+import com.chainsys.pharmacyshop.service.BillingDetailsService;
 import com.chainsys.pharmacyshop.service.BillingService;
 
 @Controller
@@ -25,6 +26,8 @@ import com.chainsys.pharmacyshop.service.BillingService;
 public class BillingController {
 	@Autowired
 	BillingService billservice;
+	@Autowired
+	private BillingDetailsService billdetailservice;
 	public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/presImg";
 
 	@GetMapping("/billlist")
@@ -44,6 +47,7 @@ public class BillingController {
 	@GetMapping("/addbillform")
 	public String showAddForm(Model model) {
 		Billing thebill = new Billing();
+		billdetailservice.generateBill(thebill.getBillid());
 		model.addAttribute("addbill", thebill);
 		return "add-bill-form";
 	}

@@ -42,7 +42,7 @@
 						<form:input path="billamount" />
 					</div>
 				</div>
-				<form:button type="submit" class="btn btn-primary">Add Medicines</form:button>
+				<form:button type="submit" class="btn btn-primary">Add Bill</form:button>
 			</form:form>
 		</div>
 	</div>

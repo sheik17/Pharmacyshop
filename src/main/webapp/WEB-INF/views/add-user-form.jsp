@@ -24,6 +24,7 @@ body {
 
 h1 {
 	color: #2F4F4F;
+	 text-align: center;
 }
 
 label {
@@ -107,7 +108,7 @@ label {
 </style>
 </head>
 <body>
-	<h1 align="center">Sign Up</h1>
+	<h1>Sign Up</h1>
 	<div id="root" class="box">
 		<div id="form">
 			<form:form action="adduser" method="post" modelAttribute="adduser">

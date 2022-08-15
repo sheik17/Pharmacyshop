@@ -8,57 +8,43 @@
 <meta charset="ISO-8859-1">
 <title>List Service Detail</title>
 </head>
-<body>
-<div id="table root">
-        <table border='2' width='1000' cellpadding='2'>
-            <thead>
-                <tr>
-                    <th>Bill_Id</th>
-					<th>Medicine_Id</th>
-					<th>Quantity</th>
-					<th>Price</th>
-					<th>Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="billdetail" items="${alldetails}">
-                    <tr>
-                        <td>${billdetail.billid}</td>
-						<td>${billdetail.medicineid}</td>
-						<td>${billdetail.quantity}</td>
-						<td>${billdetail.price}</td>
-						<td>${billdetail.amount}</td>
-                        <td><a href="/vehicleservicedetails/serviceDetailsAdd?id=${Services.serviceDetailId}&bookId=${bookId}"><button>Add bill</button></a></td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-    </div>
-    <div><a href="/vehiclepayment/addpayment?id=${bookId}"><button>payment</button></a></div>
-    <div id="table root">
-		<table>
-			<thead>
-				<tr>
-					<th>Bill_Id</th>
-					<th>User_Id</th>
-					<th>Bill_Date</th>
-					<th>Pescription_Img</th>
-					<th>Bill_Amount</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="billing" items="${allbill}">
-					<!--var represents variable items represents collection  -->
-					<tr>
-						<td>${billing.billid}</td>
-						<td>${billing.userId}</td>
-						<td>${billing.billdate}</td>
-						<td><img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/presImg/${billing.pescriptionimg}" width="100" height="100"></td>
-						<td>${billing.billamount}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+<body>	
+<div id="root">
+		<div id="form">
+			<form:form action="addbilldetail" method="post" modelAttribute="addbilldetail">
+				<div>
+					<label for="billid">Bill_Id</label>
+					<div>
+						<form:input path="billid" />
+					</div>
+				</div>
+				<div>
+					<label for=medicineid>Medicine_id</label>
+					<div>
+						<form:input path="medicineid" />
+					</div>
+				</div>
+				<div>
+					<label for="quantity">Quantity</label>
+					<div>
+						<form:input path="quantity" />
+					</div>
+				</div>
+				<div>
+					<label for="price">Price</label>
+					<div>
+						<form:input path="price" />
+					</div>
+				</div>
+				<div>
+					<label for="amount">Amount</label>
+					<div>
+						<form:input path="amount" />
+					</div>
+				</div>
+				<form:button>Add new</form:button>
+			</form:form>
+		</div>
 	</div>
 </body>
 </html>

@@ -12,6 +12,8 @@ import com.chainsys.pharmacyshop.repository.BillingDetailsRepository;
 public class BillingDetailsService {
 	@Autowired
 	private BillingDetailsRepository billDetailRepo;
+	@Autowired
+	private MedicineService medicineservice;
 	
 	public BillDetails findById(int id) {
 		return billDetailRepo.findById(id);
@@ -24,7 +26,10 @@ public class BillingDetailsService {
 	public void save(BillDetails bill) {
 		billDetailRepo.save(bill);
 	}
-	
+	public void generateBill(int id)
+	{
+		medicineservice.
+	}
 	public List<BillDetails> findAll() {
 		
 		return billDetailRepo.findAll();

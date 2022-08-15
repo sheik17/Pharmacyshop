@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Med_Users")
@@ -22,11 +24,12 @@ public class User {
 	
 	@Column(name = "USER_NAME")
 	private String userName;
-	
+	@Size(max = 20, min = 8, message = "*Minimum eight characters ")
 	@Column(name = "USER_PASSWORD")
 	private String userPassword;
 
 	@Column(name = "PHONE_NO")
+	@Digits(message = "*Invalid Mobile Number", integer = 10, fraction = 0)
 	private long phoneNo;
 	@Column(name = "EMAIL")
 	private String email;
