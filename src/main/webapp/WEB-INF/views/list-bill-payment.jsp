@@ -14,18 +14,6 @@
 			<form:form action="" method="post" object="bill"
 				enctype="multipart/form-data" modelAttribute="getbill">
 				<div>
-					<label for="billid">Bill_Id</label>
-					<div>
-						<form:input path="billid" />
-					</div>
-				</div>
-				<div>
-					<label for=userId>User_Id</label>
-					<div>
-						<form:input path="userId" />
-					</div>
-				</div>
-				<div>
 					<label for="billdate">Bill_Date</label>
 					<div>
 						<form:input path="billdate" type="date" />
@@ -53,8 +41,7 @@
 			<thead>
 				<tr>
 				<th>Bill_Id</th>
-					<th>Payment_Id</th>
-					<th>User_Id</th>
+					<th>Payment_Id</th>					
 					<th>ModeOfPayment</th>
 					<th>Balance</th>
 					<th>Payment_Date</th>
@@ -64,7 +51,6 @@
 					<tr>
 						<td>${getpayment.billid}</td>
 						<td>${getpayment.paymentid}</td>
-						<td>${getpayment.userId}</td>
 						<td>${getpayment.modeofpayment}</td>
 						<td>${getpayment.balance}</td>
 						<td>${getpayment.paymentdate}</td>

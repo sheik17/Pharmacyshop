@@ -14,7 +14,8 @@
 			<thead>
 				<tr>
 					<th>Bill_Id</th>
-					<th>User_Id</th>
+					<th>Cus_Name</th>
+					<th>Cus_PhoneNo</th>
 					<th>Bill_Date</th>
 					<th>Pescription_Img</th>
 					<th>Bill_Amount</th>
@@ -22,10 +23,10 @@
 			</thead>
 			<tbody>
 				<c:forEach var="billing" items="${allbill}">
-					<!--var represents variable items represents collection  -->
 					<tr>
 						<td>${billing.billid}</td>
-						<td>${billing.userId}</td>
+						<td>${billing.cusName}</td>
+						<td>${billing.cusPhoneno}</td>
 						<td>${billing.billdate}</td>
 						<td><img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/presImg/${billing.pescriptionimg}" width="100" height="100"></td>
 						<td>${billing.billamount}</td>

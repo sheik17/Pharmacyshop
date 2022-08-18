@@ -11,13 +11,12 @@ import com.chainsys.pharmacyshop.model.Payment;
 public interface PaymentRepository extends CrudRepository<Payment, Integer>{
 	Payment findById(int id);
 
+	@SuppressWarnings("unchecked")
 	Payment save(Payment pay);
 
 	Payment deleteById(int userid);
 
 	List<Payment> findAll();
-	
-	List<Payment> findAllByUserId(int userId);
-	
+		
 	Payment findByBillid(int id);
 }

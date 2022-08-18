@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Medical Shop</title>
+<title>Admin Page</title>
 <style>
 .header {
   overflow: hidden;
@@ -61,12 +59,14 @@
  <div class="header">
   <a href="#default" class="logo">Medical Shop</a>
   <div class="header-right">
-    <a class="active" href="/user/index">Home</a>
-    <a href="/user/login">Login</a>
-    <a href="/user/adduserform">SignUp</a>
+  	<a class="active" href="/user/admin">Home</a>
+    <a href="/medicine/addmedform">Add Medicine</a>
+    <a href="/medicine/medlist">Medicines</a>
+    <a href="/billing/billlist">Bill List</a>
+    <a href="/payment/paymentlist">Payment List</a>
+    <a href="/user/index">LogOut</a>
   </div>
 </div>
 </header>
-<img src="file:///D:/project/images/home.jpg" style="width:100%;">
 </body>
 </html>

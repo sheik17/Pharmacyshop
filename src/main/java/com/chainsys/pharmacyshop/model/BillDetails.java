@@ -1,18 +1,26 @@
 package com.chainsys.pharmacyshop.model;
 
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Billdetails")
 public class BillDetails {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "BILL_DETAIL_ID")
+	@SequenceGenerator(name = "BILL_DETAIL_ID", sequenceName = "BILL_DETAIL_ID", allocationSize = 1)
+	@Column(name="BILL_DETAIL_ID")
+	private int billDetailId;
 	@Column(name="BILL_ID")
 	private int billid;
 	@Column(name="MEDICINE_ID")
@@ -72,6 +80,12 @@ public class BillDetails {
 	}
 	public void setAmount(float amount) {
 		this.amount = amount;
+	}
+	public int getBillDetailId() {
+		return billDetailId;
+	}
+	public void setBillDetailId(int billDetailId) {
+		this.billDetailId = billDetailId;
 	}
 	
 }

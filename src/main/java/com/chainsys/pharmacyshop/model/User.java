@@ -1,13 +1,10 @@
 package com.chainsys.pharmacyshop.model;
 
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
@@ -36,20 +33,6 @@ public class User {
 
 	@Column(name = "ROLE")
 	private String role;
-
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	private List<Billing> bill;
-
-	@OneToMany(mappedBy = "users", fetch = FetchType.LAZY)
-	private List<Payment> payment;
-
-	public List<Billing> getBill() {
-		return bill;
-	}
-
-	public void setBill(List<Billing> bill) {
-		this.bill = bill;
-	}
 
 	public int getUserId() {
 		return userId;

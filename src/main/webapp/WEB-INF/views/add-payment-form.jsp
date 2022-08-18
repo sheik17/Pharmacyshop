@@ -13,12 +13,6 @@
 		<div id="form">
 			<form:form action="addpayment" method="post" modelAttribute="addpayment">
 				<div>
-					<label for="userId">UserId</label>
-					<div>
-						<form:input path="userId" />
-					</div>
-				</div>
-				<div>
 					<label for="modeofpayment">ModeOfPayment</label>
 					<div>
 						<form:input path="modeofpayment" />

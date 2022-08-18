@@ -26,22 +26,33 @@ public class Billing {
 		@SequenceGenerator(name = "BILL_ID_REF", sequenceName = "BILL_ID_REF", allocationSize = 1)
 		@Column(name="BILL_ID")
 		private int billid;
-		@Column(name="USER_ID")
-		private int userId;   
+		@Column(name="CUS_NAME")
+		private String cusName;   
+		@Column(name="CUS_PHONE_NO")
+		private long cusPhoneno; 
 		@Column(name="BILL_DATE")
 		private Date billdate;
 		@Column(name="PESCRIPTION_IMG")
 		private String pescriptionimg;
 		@Column(name="BILL_AMOUNT")
 		private float billamount;
-		@ManyToOne(fetch=FetchType.LAZY)
-		@JoinColumn(name="USER_ID",nullable=false, insertable=false, updatable=false)
-		private User user;
 		@OneToMany(mappedBy="bill", fetch= FetchType.LAZY)
 		private List<BillDetails> billdetail;
 		@OneToOne(mappedBy="bills",fetch= FetchType.LAZY)
 		private Payment payments;
 		
+		public String getCusName() {
+			return cusName;
+		}
+		public void setCusName(String cusName) {
+			this.cusName = cusName;
+		}
+		public long getCusPhoneno() {
+			return cusPhoneno;
+		}
+		public void setCusPhoneno(long cusPhoneno) {
+			this.cusPhoneno = cusPhoneno;
+		}
 		public Payment getPayments() {
 			return payments;
 		}
@@ -54,24 +65,14 @@ public class Billing {
 		public void setBilldetail(List<BillDetails> billdetail) {
 			this.billdetail = billdetail;
 		}
-		public User getUser() {
-			return user;
-		}
-		public void setUser(User user) {
-			this.user = user;
-		}
+
+
 		
 		public int getBillid() {
 			return billid;
 		}
 		public void setBillid(int billid) {
 			this.billid = billid;
-		}
-		public int getUserId() {
-			return userId;
-		}
-		public void setUserId(int userId) {
-			this.userId = userId;
 		}
 		public Date getBilldate() {
 			return billdate;

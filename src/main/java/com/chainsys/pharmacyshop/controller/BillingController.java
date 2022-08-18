@@ -47,7 +47,8 @@ public class BillingController {
 	@GetMapping("/addbillform")
 	public String showAddForm(Model model) {
 		Billing thebill = new Billing();
-		billdetailservice.generateBill(thebill.getBillid());
+//		thebill.setBillid(billservice.getNextValue());
+		billdetailservice.fetchallmedlist(thebill.getBillid());
 		model.addAttribute("addbill", thebill);
 		return "add-bill-form";
 	}
@@ -57,8 +58,8 @@ public class BillingController {
 			@RequestParam("imgName") String imgName) throws IOException {
 		bill.setBillamount(bill.getBillamount());
 		bill.setBilldate(bill.getBilldate());
-		bill.setBillid(bill.getBillid());
-		bill.setUserId(bill.getUserId());
+		bill.setCusName(bill.getCusName());
+		bill.setCusPhoneno(bill.getCusPhoneno());
 		String imageUUID;
 		if (!file.isEmpty()) {
 			imageUUID = file.getOriginalFilename();
@@ -69,7 +70,7 @@ public class BillingController {
 		}
 		bill.setPescriptionimg(imageUUID);
 		billservice.save(bill);
-		return "redirect:/billing/billlist";
+		return "redirect:/billdetail/billslist?id="+bill.getBillid();
 	}
 
 	@GetMapping("/updatebillform")
@@ -85,8 +86,8 @@ public class BillingController {
 	{
 		bill.setBillamount(bill.getBillamount());
 		bill.setBilldate(bill.getBilldate());
-		bill.setBillid(bill.getBillid());
-		bill.setUserId(bill.getUserId());
+		bill.setCusName(bill.getCusName());
+		bill.setCusPhoneno(bill.getCusPhoneno());
 		String imageUUID;
 		if (!file.isEmpty()) {
 			imageUUID = file.getOriginalFilename();
@@ -99,7 +100,6 @@ public class BillingController {
 		billservice.save(bill);
 		return "redirect:/billing/billlist";
 	}
-
 	@GetMapping("/deletebill")
 	public String deleteBill(@RequestParam("Id") int id) {
 		billservice.deleteById(id);
@@ -119,4 +119,4 @@ public class BillingController {
 	        model.addAttribute("getpayment", dto.getPayment());
 	        return "list-bill-payment";
 	    }
-}
+	 }

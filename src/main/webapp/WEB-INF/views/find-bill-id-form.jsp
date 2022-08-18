@@ -13,15 +13,15 @@
         <div id="form">
             <form:form action="" method="post" modelAttribute="findbillbyid">
            <div>
-					<label for="billid">Bill_Id</label>
+					<label for="cusName">Cus_Name</label>
 					<div>
-						<form:input path="billid" />
+						<form:input path="cusName" />
 					</div>
 				</div>
 				<div>
-					<label for=userId>User_Id</label>
+					<label for="cusPhoneno">Cus_PhoneNO</label>
 					<div>
-						<form:input path="userId" />
+						<form:input path="cusPhoneno" />
 					</div>
 				</div>
 				<div>

@@ -13,6 +13,12 @@
         <div id="form">
             <form:form action="updatebilldetail" method="post" modelAttribute="updatebilldetail">
                <div>
+					<label for="billDetailId">Bill_Detail_Id</label>
+					<div>
+						<form:input path="billDetailId" />
+					</div>
+				</div>
+               <div>
 					<label for="billid">Bill_Id</label>
 					<div>
 						<form:input path="billid" />
@@ -46,5 +52,35 @@
 			</form:form>
 		</div>
 	</div>
+ <script type="text/javascript">
+	const formEl=document.querySelector("form");
+	const tbodyEl=document.querySelector("tbody");
+	function onAddWebsite(e)
+	{
+		e.prevenDefault();
+		const billid=document.getElementById("billid").value;
+		const medicineid=document.getElementById("medicineid").value;
+		const quantity=document.getElementById("quantity").value;
+		const price=document.getElementById("price").value;
+		const amount=document.getElementById("amount").value;
+		tbodyEl.innerHTML += `
+		<tr>
+			<td>${billid}</td>
+			<td>${medicineid}</td>
+			<td>${quantity}</td>
+			<td>${price}</td>
+			<td>${amount}</td>
+			<td><button class="deleteBin">Delete</button></td>
+			</tr>
+		`;	
+	}
+	formEl.addEventListner("addrow",onAddWebsite)
+		function multiply() {
+			a = Number(document.getElementById('quantity').value);
+			b = Number(document.getElementById('price').value);
+			c = a * b;
+			document.getElementById('amount').value = c;
+		}
+	</script>
 </body>
 </html>

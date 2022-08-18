@@ -14,9 +14,15 @@
 			<form:form action="addbill" method="post" object="bill"
 				enctype="multipart/form-data" modelAttribute="addbill">
 				<div>
-					<label for=userId>User_Id</label>
+					<label for="cusName">Cus_Name</label>
 					<div>
-						<form:input path="userId" />
+						<form:input path="cusName" />
+					</div>
+				</div>
+				<div>
+					<label for="cusPhoneno">Cus_PhoneNO</label>
+					<div>
+						<form:input path="cusPhoneno" />
 					</div>
 				</div>
 				<div>
@@ -34,12 +40,6 @@
 					</div>
 					<div>
 						<input type="hidden" name="imgName" value="bill.pescriptionimg">
-					</div>
-				</div>
-				<div>
-					<label for="billamount">Bill_Amount</label>
-					<div>
-						<form:input path="billamount" />
 					</div>
 				</div>
 				<form:button type="submit" class="btn btn-primary">Add Bill</form:button>

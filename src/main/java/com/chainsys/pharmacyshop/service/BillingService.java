@@ -60,9 +60,9 @@ public class BillingService {
         dto.setPayment(payment);
         return dto;
     }
-	
-	public List<Billing> fetchAllByUserId(int userId) {
-		List<Billing> billing = billRepo.findAllByUserId(userId);
-		return billing;
+	public List<Billing> getBilling() {
+		List<Billing> bills = billRepo.findAll();
+		return bills;
 	}
+
 }

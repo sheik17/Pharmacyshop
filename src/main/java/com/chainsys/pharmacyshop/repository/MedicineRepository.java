@@ -9,6 +9,7 @@ import com.chainsys.pharmacyshop.model.Medicine;
 public interface MedicineRepository extends CrudRepository<Medicine, Integer>{
 	Medicine findById(int id);
 
+	@SuppressWarnings("unchecked")
 	Medicine save(Medicine med);
 
 	Medicine deleteById(int medid);

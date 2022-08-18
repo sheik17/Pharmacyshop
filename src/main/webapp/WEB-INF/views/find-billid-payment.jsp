@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Payment</title>
+<title>Payment</title>
 </head>
 <body>
-    <div id="root">
-        <div id="form">
-            <form:form action="updatepayments" method="post" modelAttribute="updatepayment">
+<div id="root">
+		<div id="form">
+			<form:form action="addpayment" method="post" modelAttribute="payments">
 				<div>
 					<label for="modeofpayment">ModeOfPayment</label>
 					<div>
@@ -31,18 +31,12 @@
 					</div>
 				</div>
 				<div>
-					<label for="paymentid">PaymentId</label>
-					<div>
-						<form:input path="paymentid" />
-					</div>
-				</div>
-				<div>
 					<label for="paymentdate">PaymentDate</label>
 					<div>
 						<form:input path="paymentdate" type="date" />
 					</div>
 				</div>
-				<form:button>Update</form:button>
+				<form:button>Payment</form:button>
 			</form:form>
 		</div>
 	</div>

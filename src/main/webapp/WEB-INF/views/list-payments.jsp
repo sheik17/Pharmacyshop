@@ -14,7 +14,6 @@
 			<thead>
 				<tr>
 					<th>Payment_Id</th>
-					<th>User_Id</th>
 					<th>ModeOfPayment</th>
 					<th>Balance</th>
 					<th>Bill_Id</th>
@@ -26,7 +25,6 @@
 					<!--var represents variable items represents collection  -->
 					<tr>
 						<td>${payment.paymentid}</td>
-						<td>${payment.userId}</td>
 						<td>${payment.modeofpayment}</td>
 						<td>${payment.balance}</td>
 						<td>${payment.billid}</td>

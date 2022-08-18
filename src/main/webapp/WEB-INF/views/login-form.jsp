@@ -23,6 +23,7 @@ body {
 
 h1 {
 	color: #2F4F4F;
+	 text-align: center;
 }
 
 label {
@@ -59,6 +60,30 @@ label {
 	padding-left: 8px;
 }
 
+#cap {
+	width: 260px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+
+#txtCompare {
+	width: 255px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+
+#txtCaptcha {
+	width: 255px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+
 #log {
 	width: 250px;
 	height: 30px;
@@ -70,7 +95,7 @@ label {
 
 .box {
 	width: 400px;
-	height: 240px;
+	height: 420px;
 	overflow: hidden;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
@@ -80,59 +105,88 @@ label {
 	background-color: #A9A9A9;
 }
 </style>
+<script type="text/javascript">
+	function GenerateCaptcha() {
+		var chr1 = Math.ceil(Math.random() * 10) + '';
+		var chr2 = Math.ceil(Math.random() * 10) + '';
+		var chr3 = Math.ceil(Math.random() * 10) + '';
+
+		var str = new Array(4).join().replace(
+				/(.|$)/g,
+				function() {
+					return ((Math.random() * 36) | 0).toString(36)[Math
+							.random() < .5 ? "toString" : "toUpperCase"]();
+				});
+		var captchaCode = str + chr1 + ' ' + chr2 + ' ' + chr3;
+		document.getElementById("txtCaptcha").value = captchaCode
+	}
+	function ValidCaptcha() {
+		var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+		var str2 = removeSpaces(document.getElementById('txtCompare').value);
+
+		if (str1 == str2){
+			return true;
+		}else{
+			alert("Please enter correct captcha");
+		return false;
+		}
+	}
+	function removeSpaces(string) {
+		return string.split(' ').join('');
+	}
+</script>
 </head>
-<body>
-	<h1 align="center">User Login</h1>
+<body onload="GenerateCaptcha();">
+	<h1>User Login</h1>
 	<br>
 	<div id="root" class="box">
-		<div id="form" align="center">
-			<table>
-				<form:form action="checkuserlogin" method="post"
-					modelAttribute="user">
-					<tr>
-
-						<div>
-							<td><label for="userName">User Name</label></td>
-							<td><form:input path="userName" pattern="^[a-z A-Z]+$"
-								placeholder="Enter Name" title="Please Enter Charactor Only"
-								required="true" /></td>
-							<div>
-								<form:errors path="userName" cssClass="text-danger" />
-							</div>
-						</div>
-					</tr>
-					<tr>
-						<div>
-							<td><label for="userPassword">Password</label></td>
-							<div>
-								<td><form:input type="password" path="userPassword" placeholder="Enter Password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,20}$" title="Enter Valid Password" required="true"/>
-					</td></div>				
-				<form:errors path="userPassword" cssClass="text-danger" />
+		<div id="form">
+			<form:form action="checkuserlogin" method="post" onsubmit="return ValidCaptcha()"
+				modelAttribute="user">
+				<div>
+					<label for="userName">User Name</label>
+					<form:input path="userName" pattern="^[a-z A-Z]+$"
+						placeholder="Enter Name" title="Please Enter Charactor Only"
+						required="true" />
+					<div>
+						<form:errors path="userName" cssClass="text-danger" />
+					</div>
 				</div>
-						<br>
-					</tr>
-					<tr>
-						<div>
-							<td><label for="role">Role</label></td>
-							<div>
-								<td><form:select path="role">
-										<form:errors path="role" />
-										<form:option value="admin">Admin</form:option>
-										<form:option value="user">User</form:option>
-									</form:select></td>
-							</div>
-						</div>
-						<br>
-					</tr>
-					<tr>
-						<div>
-						<td colspan="5" align="center"><br> <form:button
-								id="log">Login</form:button>
-							</div>
-					</tr>
-				</form:form>
-			</table>
+				<div>
+					<label for="userPassword">Password</label>
+					<div>
+						<form:input type="password" path="userPassword"
+							placeholder="Enter Password"
+							pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,20}$"
+							title="Enter Valid Password" required="true" />
+					</div>
+					<form:errors path="userPassword" cssClass="text-danger" />
+				</div>
+				<div>
+					<label for="role">Role</label>
+					<div>
+						<form:select path="role">
+							<form:errors path="role" />
+							<form:option value="admin">Admin</form:option>
+							<form:option value="user">User</form:option>
+						</form:select>
+					</div>
+				</div>
+				<div>
+					<label for="cap"> Enter Captcha</label>
+					<div>
+						<input type="text" id="txtCompare" /><br> <br>
+						 <input
+							type="text" id="txtCaptcha" /> <br> <input type="button"
+							id="btnrefresh" value="Refresh" onclick="GenerateCaptcha()" readonly/>
+					</div>
+				</div>
+				<br>
+				<form:button id="log" onsubmit="ValidCaptcha()">Login</form:button>
+			</form:form>
 		</div>
+
 	</div>
+
 </body>
 </html>

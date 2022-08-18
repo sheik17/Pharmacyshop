@@ -10,6 +10,7 @@ import com.chainsys.pharmacyshop.model.User;
 public interface UserRepository extends CrudRepository<User, Integer>{
 	User findById(int id);
 
+	@SuppressWarnings("unchecked")
 	User save(User u);
 
 	User deleteById(int userid);

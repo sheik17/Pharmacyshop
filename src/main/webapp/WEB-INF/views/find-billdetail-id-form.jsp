@@ -12,6 +12,12 @@
     <div id="root">
         <div id="form">
             <form:form action="" method="post" modelAttribute="findbillbyid">
+            <div>
+					<label for="billDetailId">Bill_Detail_Id</label>
+					<div>
+						<form:input path="billDetailId" />
+					</div>
+				</div>
            <div>
 					<label for="billid">Bill_Id</label>
 					<div>

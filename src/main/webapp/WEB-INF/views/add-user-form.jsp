@@ -96,7 +96,7 @@ label {
 
 .box {
 	width: 400px;
-	height: 490px;
+	height: 450px;
 	overflow: hidden;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
@@ -146,6 +146,7 @@ label {
 					<div>
 						<form:select path="role">
 								<form:option value="user">User</form:option>
+								<form:option value="admin">User</form:option>
 							</form:select>
 					</div>
 				</div>

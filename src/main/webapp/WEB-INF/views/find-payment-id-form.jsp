@@ -12,12 +12,6 @@
     <div id="root">
         <div id="form">
             <form:form action="" method="post" modelAttribute="findpaymentbyid">
-          <div>
-					<label for="userId">UserId</label>
-					<div>
-						<form:input path="userId" />
-					</div>
-				</div>
 				<div>
 					<label for="modeofpayment">ModeOfPayment</label>
 					<div>

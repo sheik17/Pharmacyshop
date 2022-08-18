@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.pharmacyshop.dto.UserBillingDTO;
-import com.chainsys.pharmacyshop.dto.UserPaymentDTO;
 import com.chainsys.pharmacyshop.model.User;
 import com.chainsys.pharmacyshop.service.UserService;
 
@@ -28,6 +26,16 @@ public class UserController {
 	public String index()
 	{
 		return "index";
+	}
+	@GetMapping("/admin")
+	public String admin()
+	{
+		return "admin_index";
+	}
+	@GetMapping("/user")
+	public String user()
+	{
+		return "user_index";
 	}
 	@GetMapping("/userlist")
 	public String getUserAll(Model model) {
@@ -86,27 +94,13 @@ public class UserController {
 		model.addAttribute("user", theuser);
 		return "login-form";
 	}
-	@GetMapping("/getlistuserbilling")
-    public String getDocumentUser(@RequestParam("id") int id, Model model) {
-        UserBillingDTO userBillingdto = userservice.getUserBilling(id);
-        model.addAttribute("getuser", userBillingdto.getUsers());
-        model.addAttribute("billlist", userBillingdto.getBillingList());
-        return "list-user-billing";
-    }
-	@GetMapping("/getlistuserpayment")
-    public String getPaymentUser(@RequestParam("id") int id, Model model) {
-        UserPaymentDTO userPaymentdto = userservice.getUserPayment(id);
-        model.addAttribute("getuser", userPaymentdto.getUsers());
-        model.addAttribute("paymentlist", userPaymentdto.getPaymentList());
-        return "list-user-payment";
-    }
 	@PostMapping("/checkuserlogin")
 	public String checkingAccess(@ModelAttribute("user") User user) {
 		User users = userservice.getUserNameAndUserPasswordAndRole(user.getUserName(), user.getUserPassword(),user.getRole());
 		if (users != null) {
 			if("admin".equals(users.getRole()))
 			{
-			return "redirect:/user/userlist";
+			return "redirect:/user/admin";
 			}
 			else
 			{

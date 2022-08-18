@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 import com.chainsys.pharmacyshop.model.BillDetails;
-import com.chainsys.pharmacyshop.model.Medicine;
 
 
 public interface BillingDetailsRepository extends CrudRepository<BillDetails, Integer>{
 	BillDetails findById(int id);
 
+	@SuppressWarnings("unchecked")
 	BillDetails save(BillDetails billdetails);
 
 	BillDetails deleteById(int billid);
@@ -19,4 +19,5 @@ public interface BillingDetailsRepository extends CrudRepository<BillDetails, In
 	
 	List<BillDetails> findAllByMedicineid(int medId);
 	List<BillDetails> findAllByBillid(int billId);
+	
 }

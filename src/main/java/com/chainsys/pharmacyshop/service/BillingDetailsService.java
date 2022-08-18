@@ -12,8 +12,6 @@ import com.chainsys.pharmacyshop.repository.BillingDetailsRepository;
 public class BillingDetailsService {
 	@Autowired
 	private BillingDetailsRepository billDetailRepo;
-	@Autowired
-	private MedicineService medicineservice;
 	
 	public BillDetails findById(int id) {
 		return billDetailRepo.findById(id);
@@ -22,16 +20,24 @@ public class BillingDetailsService {
 	public BillDetails deleteById(int billid) {
 		return billDetailRepo.deleteById(billid);
 	}
+	public void addBillDetails(BillDetails billDetails) {
+		billDetailRepo.save(billDetails);
+	}
+	public BillDetails fetchallmedlist(int billid)
+	{
+		return null;
+	}
 	
 	public void save(BillDetails bill) {
 		billDetailRepo.save(bill);
-	}
-	public void generateBill(int id)
-	{
-		medicineservice.
 	}
 	public List<BillDetails> findAll() {
 		
 		return billDetailRepo.findAll();
 	}
+	public List<BillDetails> findAllByBillid(int id)
+	{
+		return billDetailRepo.findAllByBillid(id);
+	}
+	
 }
