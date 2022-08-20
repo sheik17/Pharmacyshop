@@ -1,4 +1,5 @@
 package com.chainsys.pharmacyshop.controller;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,59 +22,60 @@ public class PaymentController {
 	PaymentService payservice;
 	@Autowired
 	BillingDetailsService billservice;
-	@Autowired
-	Logic logic;
+
 	@GetMapping("/paymentlist")
 	public String getPaymentAll(Model model) {
 		List<Payment> paymentlist = payservice.findAll();
 		model.addAttribute("allpayment", paymentlist);
 		return "list-payments";
 	}
+
 	@GetMapping("/findpaymentid")
 	public String findPaymentById(@RequestParam("Id") int id, Model model) {
 		Payment thepayment = payservice.findById(id);
 		model.addAttribute("findpaymentbyid", thepayment);
 		return "find-payment-id-form";
 	}
+
 	@GetMapping("/addpaymentform")
 	public String showAddForm(Model model) {
 		Payment thepayment = new Payment();
 		model.addAttribute("addpayment", thepayment);
 		return "add-payment-form";
 	}
+
 	@GetMapping("/updatepaymentform")
 	public String showUpdateForm(@RequestParam("Id") int id, Model model) {
 		Payment thepayment = payservice.findById(id);
 		model.addAttribute("updatepayment", thepayment);
 		return "update-payment-form";
 	}
+
 	@PostMapping("/updatepayments")
 	public String updateMed(@ModelAttribute("updatepayment") Payment thepayment) {
 		payservice.save(thepayment);
 		return "redirect:/payment/paymentlist";
 	}
+
 	@GetMapping("/deletepayment")
 	public String deletePayment(@RequestParam("Id") int id) {
 		payservice.deleteById(id);
 		return "redirect:/payment/paymentlist";
 	}
+
 	@GetMapping("/findbybillidpayment")
-	public String findPayment(@RequestParam("Id") int id,Model model) {
-		List<BillDetails> billDetalsLit=billservice.findAllByBillid(id);
+	public String findPayment(@RequestParam("Id") int id, Model model) {
+		List<BillDetails> billDetalsLit = billservice.findAllByBillid(id);
 		float amount = 0;
-		try {
-			amount = logic.getTotalAmount(billDetalsLit);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		Payment payment =new Payment();
-		payment.setBillid(id);
+		Payment payment = new Payment();
+		amount = Logic.getTotalAmount(billDetalsLit);
 		payment.setBalance(amount);
+		payment.setBillid(id);
 		model.addAttribute("payments", payment);
 		return "find-billid-payment";
 	}
 	@PostMapping("/addpayment")
-	public String addPayment(@ModelAttribute("payments")Payment payment,Model model) {
+	public String addPayment(@ModelAttribute("payments") Payment payment, Model model) {
 		payservice.save(payment);
 		return "success-page";
 	}
