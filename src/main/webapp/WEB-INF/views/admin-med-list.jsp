@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Medicine List</title>
@@ -86,6 +86,7 @@ table.center {
 	</h1>
 	<div id="table">
 		<table id="alter">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Medicine_Id</th>
@@ -114,7 +115,7 @@ table.center {
 						<td>${medicine.stocks}</td>
 						<td><img
 							src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}"
-							width="100" height="100"></td>
+							width="100" height="100" alt=""></td>
 						<td><a
 							href="updatemedform?id=${medicine.medicineid}"> <input
 								onclick="change()" type="button" value="Update" id="myButton2"></input></a></td>

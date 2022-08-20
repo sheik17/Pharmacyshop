@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Medicine List</title>
@@ -104,7 +104,7 @@ body {
 	<h2 style="text-align: center">Product Card</h2>
 
 	<div class="card">
-		<img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}" style="width: 100%">
+		<img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}" alt="" style="width: 100%">
 		<h1>${medicine.medicinename}</h1>
 		<p class="price">${medicine.price}</p>
 			<div><a href="/billing/addbillform">Add to Cart</a></div>

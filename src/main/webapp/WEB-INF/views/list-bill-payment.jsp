@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>bill</title>
 </head>
 <body>
 <div id="root">
@@ -38,9 +38,9 @@
 				</div>
 				<div id="table root">
 				<table>
+				<caption></caption>
 			<thead>
 				<tr>
-					<th>Bill_Id</th>
 					<th>Payment_Id</th>					
 					<th>ModeOfPayment</th>
 					<th>Balance</th>
@@ -49,7 +49,6 @@
 			</thead>
 			<tbody>
 					<tr>
-						<td>${getpayment.billid}</td>
 						<td>${getpayment.paymentid}</td>
 						<td>${getpayment.modeofpayment}</td>
 						<td>${getpayment.balance}</td>

@@ -99,6 +99,7 @@ table.center {
 <body>
 	<div id="table">
 		<table id="alter">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Medicine_Id</th>
@@ -126,7 +127,7 @@ table.center {
 						<td>${medicine.stocks}</td>
 						<td><img
 							src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}"
-							width="100" height="100"></td>
+							width="100" height="100" alt=""></td>
 						<td><a
 							href="/billdetail/billDetailsAdd?id=${medicine.medicineid}&billId=${billid}"><input
 								onclick="change()" type="button" value="Bill" id="myButton1"></input></a>
@@ -138,6 +139,7 @@ table.center {
 	</div>
 	<div id="table root">
 		<table id="alter">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Bill_Detail_Id</th>

@@ -63,6 +63,7 @@ table.center {
 	</h1>
 	<div id="table root">
 		<table id="alter">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Bill_Id</th>
@@ -80,7 +81,7 @@ table.center {
 						<td>${billing.cusName}</td>
 						<td>${billing.cusPhoneno}</td>
 						<td>${billing.billdate}</td>
-						<td><img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/presImg/${billing.pescriptionimg}" width="100" height="100"></td>
+						<td><img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/presImg/${billing.pescriptionimg}" width="100" height="100" alt=""></td>
 						<td>${billing.billamount}</td>
 					</tr>
 				</c:forEach>

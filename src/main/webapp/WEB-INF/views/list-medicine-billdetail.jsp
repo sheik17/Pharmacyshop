@@ -77,6 +77,7 @@
 	<br>
 	<div id="table root">
 		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Bill_Id</th>
@@ -88,7 +89,6 @@
 			</thead>
 			<tbody>
 				<c:forEach var="billdetail" items="${billdetaillist}">
-					<!--var represents variable items represents collection  -->
 					<tr>
 						<td>${billdetail.billid}</td>
 						<td>${billdetail.medicineid}</td>

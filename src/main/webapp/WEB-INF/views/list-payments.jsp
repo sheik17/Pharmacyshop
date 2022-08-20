@@ -56,6 +56,7 @@ table.center {
 <h1>Payment List</h1>
 	<div id="table root">
 		<table id="alter">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Payment_Id</th>
