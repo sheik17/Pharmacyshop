@@ -6,6 +6,12 @@
 <meta charset="ISO-8859-1">
 <title>Admin Page</title>
 <style>
+body {
+	background-image:url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm373batch15-217-01-kqdjajvh.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=15fccb3bc143a97781dc8845d6b00c9c');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
 .header {
   overflow: hidden;
   padding: 20px 10px;
@@ -61,8 +67,8 @@
   <div class="header-right">
   	<a class="active" href="/user/admin">Home</a>
     <a href="/medicine/addmedform">Add Medicine</a>
-    <a href="/medicine/medlist">Medicines</a>
-    <a href="/billing/billlist">Bill List</a>
+    <a href="/medicine/adminmedlist">Medicines</a>
+    <a href="/billing/billalllist">Bill List</a>
     <a href="/payment/paymentlist">Payment List</a>
     <a href="/user/index">LogOut</a>
   </div>

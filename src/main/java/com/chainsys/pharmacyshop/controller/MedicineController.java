@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,12 @@ public class MedicineController {
 		List<Medicine> medlist = medservice.findAll();
 		model.addAttribute("allmed", medlist);
 		return "list-meds";
+	}
+	@GetMapping("/adminmedlist")
+	public String getadminMedicineAll(Model model) {
+		List<Medicine> medlist = medservice.findAll();
+		model.addAttribute("allmeddetail", medlist);
+		return "admin-med-list";
 	}
 
 	@GetMapping("/findMedid")
@@ -69,11 +76,11 @@ public class MedicineController {
 		}
 		medicine.setMedicineimg(imageUUID);
 		medservice.save(medicine);
-		return "redirect:/medicine/medlist";
+		return "redirect:/medicine/adminmedlist";
 	}
 
 	@GetMapping("/updatemedform")
-	public String showUpdateForm(@RequestParam("Id") int id, Model model) {
+	public String showUpdateForm(@RequestParam("id") int id, Model model) {
 		Medicine themed = medservice.findById(id);
 		model.addAttribute("updatemed", themed);
 		return "update-med-form";
@@ -100,13 +107,13 @@ public class MedicineController {
 		}
 		product.setMedicineimg(imageUUID);
 		medservice.save(product);
-		return "redirect:/medicine/medlist";
+		return "redirect:/medicine/adminmedlist";
 	}
 
 	@GetMapping("/deletemed")
-	public String deleteMed(@RequestParam("Id") int id) {
+	public String deleteMed(@RequestParam("id") int id) {
 		medservice.deleteById(id);
-		return "redirect:/medicine/medlist";
+		return "redirect:/medicine/adminmedlist";
 	}
 
 	@GetMapping("/getlistmedicinedetail")
@@ -116,4 +123,14 @@ public class MedicineController {
 		model.addAttribute("billdetaillist", medicinebilldto.getBillDetailList());
 		return "list-medicine-billdetail";
 	}
+	@GetMapping("/getfilterexpdate")
+    public String getExpDateForm() {
+        return "list-filter-medicine";
+    }
+	@GetMapping("/expdate")
+    public String getAllStatus(@RequestParam("expdate") Date expdate, Model model) {
+        List<Medicine> medicineExpdate = medservice.productExpdate(expdate);
+        model.addAttribute("allmeddetail", medicineExpdate);
+        return "admin-med-list";
+    }
 }

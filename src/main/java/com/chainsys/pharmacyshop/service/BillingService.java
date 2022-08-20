@@ -37,10 +37,9 @@ public class BillingService {
 		billRepo.save(bill);
 	}
 	
-	public List<Billing> findAll() {
-		
-		return billRepo.findAll();
-	}
+	/*
+	 * public List<Billing> findAll() { return billRepo.findAll(); }
+	 */
 	public BillToBillDetailDTO getBillToBillDetail(int id) {
 		Billing bill = findById(id);
 		BillToBillDetailDTO dto = new BillToBillDetailDTO();
@@ -64,5 +63,7 @@ public class BillingService {
 		List<Billing> bills = billRepo.findAll();
 		return bills;
 	}
-
+	public List<Billing> cusPhoneno(long cusPhoneno) {
+        return billRepo.getCusPhoneno(cusPhoneno);
+    }
 }

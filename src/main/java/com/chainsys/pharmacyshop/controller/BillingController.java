@@ -30,15 +30,15 @@ public class BillingController {
 	private BillingDetailsService billdetailservice;
 	public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/presImg";
 
-	@GetMapping("/billlist")
+	@GetMapping("/billalllist")
 	public String getBillAll(Model model) {
-		List<Billing> billlist = billservice.findAll();
+		List<Billing> billlist = billservice.getBilling();
 		model.addAttribute("allbill", billlist);
 		return "list-bills";
 	}
 
 	@GetMapping("/findbillid")
-	public String findBillById(@RequestParam("Id") int id, Model model) {
+	public String findBillById(@RequestParam("id") int id, Model model) {
 		Billing thebill = billservice.findById(id);
 		model.addAttribute("findbillbyid", thebill);
 		return "find-bill-id-form";
@@ -118,5 +118,16 @@ public class BillingController {
 	        model.addAttribute("getbill", dto.getBilling());
 	        model.addAttribute("getpayment", dto.getPayment());
 	        return "list-bill-payment";
+	    }
+	 @GetMapping("/getfilterphoneno")
+	    public String getPhoneNoForm() {
+	        return "list-filter-bill";
+	    }
+
+	 @GetMapping("/phoneno")
+	    public String getAllStatus(@RequestParam("cusPhoneno") long cusPhoneno, Model model) {
+	        List<Billing> billCusPhoneno = billservice.cusPhoneno(cusPhoneno);
+	        model.addAttribute("allbill", billCusPhoneno);
+	        return "list-bills";
 	    }
 	 }

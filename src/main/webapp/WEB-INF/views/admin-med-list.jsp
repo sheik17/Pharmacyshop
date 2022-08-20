@@ -3,11 +3,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add BillDetails</title>
-<style>
+<title>Medicine List</title>
+<style type="text/css">
 @charset "ISO-8859-1";
 
 body {
@@ -53,17 +53,6 @@ table.center {
 	margin-left: auto;
 	margin-right: auto;
 }
-
-#myButton1 {
-	background-color: #04AA6D;
-	border: none;
-	color: white;
-	padding: 16px 32px;
-	text-decoration: none;
-	margin-left: auto;
-	margin-right: auto;
-	cursor: pointer;
-}
 #myButton2 {
 	background-color: #04AA6D;
 	border: none;
@@ -84,19 +73,17 @@ table.center {
 	margin-right: auto;
 	cursor: pointer;
 }
-#myButton4 {
-	background-color: #04AA6D;
-	border: none;
-	color: white;
-	padding: 16px 580px;
-	text-decoration: none;
-	margin-left: 90px;
-	margin-right: auto;
-	cursor: pointer;
-}
 </style>
 </head>
 <body>
+<h1>Medicine List
+<br>
+		<button onclick="document.location='/user/admin'"
+			style="float: left;">Back</button>
+		<button name="value"
+			onclick="document.location='/medicine/getfilterexpdate'"
+			style="float: center;">Filter ExpDate</button>
+	</h1>
 	<div id="table">
 		<table id="alter">
 			<thead>
@@ -110,11 +97,12 @@ table.center {
 					<th>Pescription_Req</th>
 					<th>Stocks</th>
 					<th>Medicine_Img</th>
-					<th>Bill</th>
+					<th>Update</th>
+					<th>Delete</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="medicine" items="${allmedicine}">
+				<c:forEach var="medicine" items="${allmeddetail}">
 					<tr>
 						<td>${medicine.medicineid}</td>
 						<td>${medicine.medicinename}</td>
@@ -128,50 +116,17 @@ table.center {
 							src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}"
 							width="100" height="100"></td>
 						<td><a
-							href="/billdetail/billDetailsAdd?id=${medicine.medicineid}&billId=${billid}"><input
-								onclick="change()" type="button" value="Bill" id="myButton1"></input></a>
-					</tr>
+							href="updatemedform?id=${medicine.medicineid}"> <input
+								onclick="change()" type="button" value="Update" id="myButton2"></input></a></td>
+						<td><a
+							href="deletemed?id=${medicine.medicineid}"><input
+								onclick="change()" type="button" value="Delete" id="myButton3"></input></a></td>
+						</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<br> <br>
+		<br> 
+		<br>
 	</div>
-	<div id="table root">
-		<table id="alter">
-			<thead>
-				<tr>
-					<th>Bill_Detail_Id</th>
-					<th>Bill_Id</th>
-					<th>Medicine_Id</th>
-					<th>Quantity</th>
-					<th>Price</th>
-					<th>Amount</th>
-					<th>Update</th>
-					<th>Delete</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="billdetail" items="${allbilldetails}">
-					<tr>
-						<td>${billdetail.billDetailId}</td>
-						<td>${billdetail.billid}</td>
-						<td>${billdetail.medicineid}</td>
-						<td>${billdetail.quantity}</td>
-						<td>${billdetail.price}</td>
-						<td>${billdetail.amount}</td>
-						<td><a
-							href="updatebilldetailform?id=${billdetail.billDetailId}"> <input
-								onclick="change()" type="button" value="Update" id="myButton2"></input></a></td>
-						<td><a
-							href="deletebilldetails?id=${billdetail.billDetailId}&billId=${billdetail.billid}"><input
-								onclick="change()" type="button" value="Delete" id="myButton3"></input></a></td>
-
-					</tr>
-				</c:forEach>
-		</table>
-	</div>
-	<br>
-	<a href="/payment/findbybillidpayment?Id=${billid}"><input
-		onclick="change()" type="button" value="Payment" id="myButton4"></input></a>
 </body>
 </html>

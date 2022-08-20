@@ -136,8 +136,8 @@ label {
 	}
 </script>
 </head>
-<body onload="GenerateCaptcha();">
-	<h1>User Login</h1>
+<body onload="GenerateCaptcha()">
+	<h1>Login</h1>
 	<br>
 	<div id="root" class="box">
 		<div id="form">
@@ -168,7 +168,7 @@ label {
 						<form:select path="role">
 							<form:errors path="role" />
 							<form:option value="admin">Admin</form:option>
-							<form:option value="user">User</form:option>
+							<form:option value="staff">Staff</form:option>
 						</form:select>
 					</div>
 				</div>
@@ -177,8 +177,8 @@ label {
 					<div>
 						<input type="text" id="txtCompare" /><br> <br>
 						 <input
-							type="text" id="txtCaptcha" /> <br> <input type="button"
-							id="btnrefresh" value="Refresh" onclick="GenerateCaptcha()" readonly/>
+							 id="txtCaptcha" readonly="readonly"/> <br> <input type="button"
+							id="btnrefresh" value="Refresh" onclick="GenerateCaptcha()"/>
 					</div>
 				</div>
 				<br>

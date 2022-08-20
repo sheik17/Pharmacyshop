@@ -145,8 +145,7 @@ label {
 					<label for="role">Role</label>
 					<div>
 						<form:select path="role">
-								<form:option value="user">User</form:option>
-								<form:option value="admin">User</form:option>
+								<form:option value="staff">Staff</form:option>
 							</form:select>
 					</div>
 				</div>

@@ -7,80 +7,141 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Billdetails</title>
+<style type="text/css">
+body {
+	background-image:
+		url("https://images.unsplash.com/photo-1593538312308-d4c29d8dc7f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+h1 {
+	color: #8B4513;
+	text-align: center;
+}
+label {
+	color: #8B4513;
+	font-size: 1.3em;
+	display: flex;
+	margin: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+#billDetailId {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#billid {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#medicineid {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#quantity {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#price {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#amount {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#button
+{
+	background-color: #04AA6D;
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-decoration: none;
+	margin-left: auto;
+	margin-right: auto;
+	cursor: pointer;
+	}
+.box {
+	width: 400px;
+	height: 490px;
+	overflow: hidden;
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
+	margin: auto;
+	padding: 10px;
+	text-align: center;
+	background-color: #00000;
+}
+</style>
 </head>
 <body>
-    <div id="root">
+    <div class="box">
         <div id="form">
             <form:form action="updatebilldetail" method="post" modelAttribute="updatebilldetail">
                <div>
 					<label for="billDetailId">Bill_Detail_Id</label>
 					<div>
-						<form:input path="billDetailId" />
+						<form:input path="billDetailId" readonly="true"/>
 					</div>
 				</div>
                <div>
 					<label for="billid">Bill_Id</label>
 					<div>
-						<form:input path="billid" />
+						<form:input path="billid" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for=medicineid>Medicine_id</label>
 					<div>
-						<form:input path="medicineid" />
+						<form:input path="medicineid" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="quantity">Quantity</label>
 					<div>
-						<form:input path="quantity" />
+						<form:input path="quantity" onchange="amountCalculate()"/>
 					</div>
 				</div>
 				<div>
 					<label for="price">Price</label>
 					<div>
-						<form:input path="price" />
+						<form:input path="price" onchange="amountCalculate()" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="amount">Amount</label>
 					<div>
-						<form:input path="amount" />
+						<form:input path="amount" onchange="amountCalculate(this.form)" />
 					</div>
 				</div>
-				<form:button>Update</form:button>
+				<br>
+				<form:button id="button">Update</form:button>
 			</form:form>
 		</div>
 	</div>
- <script type="text/javascript">
-	const formEl=document.querySelector("form");
-	const tbodyEl=document.querySelector("tbody");
-	function onAddWebsite(e)
-	{
-		e.prevenDefault();
-		const billid=document.getElementById("billid").value;
-		const medicineid=document.getElementById("medicineid").value;
-		const quantity=document.getElementById("quantity").value;
-		const price=document.getElementById("price").value;
-		const amount=document.getElementById("amount").value;
-		tbodyEl.innerHTML += `
-		<tr>
-			<td>${billid}</td>
-			<td>${medicineid}</td>
-			<td>${quantity}</td>
-			<td>${price}</td>
-			<td>${amount}</td>
-			<td><button class="deleteBin">Delete</button></td>
-			</tr>
-		`;	
-	}
-	formEl.addEventListner("addrow",onAddWebsite)
-		function multiply() {
-			a = Number(document.getElementById('quantity').value);
-			b = Number(document.getElementById('price').value);
-			c = a * b;
-			document.getElementById('amount').value = c;
-		}
-	</script>
+<script type="text/javascript">
+    function amountCalculate() {
+        var quantity = document.getElementById("quantity").value;
+        var price = document.getElementById("price").value;
+        var amount = parseInt(quantity) * parseInt(price);
+
+        document.getElementById("amount").value = amount;
+        return amount;
+    }
+</script>
 </body>
 </html>

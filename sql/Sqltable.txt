@@ -1,0 +1,61 @@
+Create Table Med_Users
+(
+User_id number(20) primary key,
+User_Name varchar(30),
+User_Password varchar2(30),
+Phone_No number(20),
+Email varchar2(30),
+Role varchar2(20)
+);
+create sequence  USER_ID_REF start with 1 increment by 1;
+------------------------------------------------------------------------------------------------------------
+Create Table Medicine
+(
+Medicine_id number(30)primary Key,
+Medicine_name varchar(30),
+Quantity number(20),
+Price number(20),
+Exp_date date,
+Pescription_req varchar(30),
+Manufacture date,
+Stocks number(30),
+medicine_img varchar(30)
+);
+create sequence  MEDICINE_ID_REF start with 101 increment by 1;
+---------------------------------------------------------------------------------------------------------------
+Create Table Billing
+(
+Bill_id number(20) primary Key,
+Cus_Name varchar(20),
+Cus_Phone_No number(20),
+Bill_date date,
+Pescription_img varchar(30),
+Bill_amount number(30)
+);
+create sequence  BILL_ID_REF start with 1001 increment by 1;
+---------------------------------------------------------------------------------------------------------------
+Create Table BillDetails
+(
+Bill_detail_id number(20) primary key,
+Bill_id number(20),
+Medicine_id number(30),
+Quantity number(20),
+Price number(30),
+Amount number(30),
+Foreign Key(Medicine_id) References Medicine(Medicine_id),
+Foreign Key(Bill_id) References Billing(Bill_id)
+);
+create sequence  BILL_DETAIL_ID start with 1 increment by 1;
+-----------------------------------------------------------------------------------------------------------------
+Create Table Payments
+(
+Modeofpayment varchar(30),    
+Balance number(30),    
+Bill_id number(20),
+Payment_id number(20)PRIMARY KEY,
+Payment_date date,
+Foreign Key(Bill_id) References Billing(Bill_id)
+);
+create sequence  PAYMENT_ID start with 1 increment by 1;
+-----------------------------------------------------------------------------------------------------------------
+

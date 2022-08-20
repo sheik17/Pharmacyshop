@@ -20,7 +20,31 @@ body {
 	text-align: center;
 	font-family: arial;
 }
+.center {
+	position: absolute;
+	top: 52%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	padding: 0 20px;
+	text-align: center;
+}
 
+.center .title {
+	color: #b768a2;
+	font-size: 55px;
+	font-weight: 600;
+}
+
+.center .sub_title {
+	color: #b3d9ff;
+	font-size: 52px;
+	font-weight: 600;
+}
+
+.center .btns {
+	margin-top: 20px;
+}
 .price {
 	color: grey;
 	font-size: 22px;
@@ -100,15 +124,10 @@ body {
   </div>
 </div>
 </header>
-	<c:forEach var="medicine" items="${allmed}">
-	<h2 style="text-align: center">Product Card</h2>
-
-	<div class="card">
-		<img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}" style="width: 100%">
-		<h1>${medicine.medicinename}</h1>
-		<p class="price">${medicine.price}</p>
-			<div><a href="/billing/addbillform">Add to Cart</a></div>
-	</div>
-	</c:forEach>
+<div class="img"></div>
+	<div class="center">
+		<div class="title">Pharmaceutical care practice, clinical pharmacy practice, and public health services</div>
+		<div class="btns"></div>
+		</div>
 </body>
 </html>

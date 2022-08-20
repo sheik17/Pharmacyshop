@@ -15,6 +15,7 @@ public class PaymentService {
 	private PaymentRepository payRepo;
 	@Autowired
 	private BillingService billingService;
+	
 	public Payment findById(int id) {
 		return payRepo.findById(id);
 	}
@@ -23,7 +24,6 @@ public class PaymentService {
 	public Payment save(Payment pay) {
 		Payment payment=payRepo.save(pay);
 		Billing billing=billingService.findById(pay.getBillid());
-		System.out.println(billing.getBillid());
 		billing.setBillamount(pay.getBalance());
 		billingService.save(billing);
 		return payment;

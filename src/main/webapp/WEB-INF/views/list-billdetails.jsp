@@ -38,7 +38,7 @@
 	</div>
 	<div><a href="/billing/addbill?id=${billid}"><button>Bill</button></a></div>
 	<div id="table root">
-		<table border='2' width=1000' cellpadding='2'>
+		<table>
 			<thead>
 				<tr>
 					<th>Bill_Id</th>

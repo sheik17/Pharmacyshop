@@ -40,7 +40,7 @@
 				<table>
 			<thead>
 				<tr>
-				<th>Bill_Id</th>
+					<th>Bill_Id</th>
 					<th>Payment_Id</th>					
 					<th>ModeOfPayment</th>
 					<th>Balance</th>

@@ -1,6 +1,7 @@
 package com.chainsys.pharmacyshop.service;
 
 
+import java.sql.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -49,5 +50,8 @@ public class MedicineService {
 		}
 		return dto;
 	}
+	public List<Medicine> productExpdate(Date expDate) {
+        return medicineRepo.getExpdate(expDate);
+    }
 	
 }

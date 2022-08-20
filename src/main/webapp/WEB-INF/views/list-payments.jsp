@@ -7,10 +7,55 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Payment List</title>
+<style type="text/css">
+@charset "ISO-8859-1";
+body
+{
+background-color: #ccffff;
+}
+h1, h2, h3 {
+	text-align: center;
+}
+table {
+	text-align: center;
+	width: 90%;
+	
+}
+#alter{
+margin-left:80px;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px;
+}
+
+table#alter tr:nth-child(even) {
+	background-color: #eee;
+}
+
+table#alter tr:nth-child(odd) {
+	background-color: #fff;
+}
+
+table#alter th {
+	color: white;
+	background-color: gray;
+}
+table.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+</style>
 </head>
 <body>
+<h1>Payment List</h1>
 	<div id="table root">
-		<table>
+		<table id="alter">
 			<thead>
 				<tr>
 					<th>Payment_Id</th>
@@ -22,7 +67,6 @@
 			</thead>
 			<tbody>
 				<c:forEach var="payment" items="${allpayment}">
-					<!--var represents variable items represents collection  -->
 					<tr>
 						<td>${payment.paymentid}</td>
 						<td>${payment.modeofpayment}</td>
