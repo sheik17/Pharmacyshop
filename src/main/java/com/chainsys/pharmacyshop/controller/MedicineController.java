@@ -1,5 +1,4 @@
 package com.chainsys.pharmacyshop.controller;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.chainsys.pharmacyshop.dto.MedicineBilldetailDTO;
 import com.chainsys.pharmacyshop.model.Medicine;
 import com.chainsys.pharmacyshop.service.MedicineService;
@@ -24,9 +22,8 @@ import com.chainsys.pharmacyshop.service.MedicineService;
 public class MedicineController {
 	@Autowired
 	MedicineService medservice;
-
-	public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/productImages";
-
+	public static String next="redirect:/medicine/adminmedlist";
+	public String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/productImages";
 	@GetMapping("/medlist")
 	public String getMedicineAll(Model model) {
 		List<Medicine> medlist = medservice.findAll();
@@ -39,21 +36,18 @@ public class MedicineController {
 		model.addAttribute("allmeddetail", medlist);
 		return "admin-med-list";
 	}
-
 	@GetMapping("/findMedid")
 	public String findMedicineById(@RequestParam("Id") int id, Model model) {
 		Medicine themed = medservice.findById(id);
 		model.addAttribute("findmedbyid", themed);
 		return "find-med-id-form";
 	}
-
 	@GetMapping("/addmedform")
 	public String showAddForm(Model model) {
 		Medicine themed = new Medicine();
 		model.addAttribute("addmed", themed);
 		return "add-med-form";
 	}
-
 	@PostMapping("/addmed")
 	public String addNewMed(@RequestParam("productImage") MultipartFile file, Medicine medicine,
 			@RequestParam("imgName") String imgName) throws IOException {
@@ -75,17 +69,15 @@ public class MedicineController {
 			imageUUID = imgName;
 		}
 		medicine.setMedicineimg(imageUUID);
-		medservice.save(medicine);
-		return "redirect:/medicine/adminmedlist";
+		medservice.save(medicine);	
+		return next;
 	}
-
 	@GetMapping("/updatemedform")
 	public String showUpdateForm(@RequestParam("id") int id, Model model) {
 		Medicine themed = medservice.findById(id);
 		model.addAttribute("updatemed", themed);
 		return "update-med-form";
 	}
-
 	@PostMapping("/updatemed")
 	public String updateMed(@RequestParam("productImage") MultipartFile file, Medicine product,
 			@RequestParam("imgName") String imgName) throws IOException {
@@ -107,15 +99,13 @@ public class MedicineController {
 		}
 		product.setMedicineimg(imageUUID);
 		medservice.save(product);
-		return "redirect:/medicine/adminmedlist";
+		return next;
 	}
-
 	@GetMapping("/deletemed")
 	public String deleteMed(@RequestParam("id") int id) {
 		medservice.deleteById(id);
-		return "redirect:/medicine/adminmedlist";
+		return next;
 	}
-
 	@GetMapping("/getlistmedicinedetail")
 	public String getBillDetailMedicine(@RequestParam("id") int id, Model model) {
 		MedicineBilldetailDTO medicinebilldto = medservice.getMedicineBillDetail(id);
