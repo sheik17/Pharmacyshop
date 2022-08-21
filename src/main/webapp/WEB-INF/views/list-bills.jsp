@@ -7,49 +7,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Bill List</title>
-<style type="text/css">
-@charset "ISO-8859-1";
-body
-{
-background-color: #ccffff;
-}
-h1, h2, h3 {
-	text-align: center;
-}
-table {
-	text-align: center;
-	width: 90%;
-	
-}
-#alter{
-margin-left:80px;
-}
-
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-
-th, td {
-	padding: 10px;
-}
-
-table#alter tr:nth-child(even) {
-	background-color: #eee;
-}
-
-table#alter tr:nth-child(odd) {
-	background-color: #fff;
-}
-
-table#alter th {
-	color: white;
-	background-color: gray;
-}
-table.center {
-	margin-left: auto;
-	margin-right: auto;
-}
+<link href='https://css.gg/arrow-left-o.css' rel='stylesheet'>
+<style>
+<%@include file="/WEB-INF/css/list-bills.css"%>
 </style>
 </head>
 <body>
@@ -58,7 +18,7 @@ table.center {
 		<button onclick="document.location='/user/admin'"
 			style="float: left;">Back</button>
 		<button name="value"
-			onclick="document.location='/billing/getfilterphoneno'"
+			onclick="document.location='/billing/getadminfilterphoneno'"
 			style="float: center;">Filter Phoneno</button>
 	</h1>
 	<div id="table root">

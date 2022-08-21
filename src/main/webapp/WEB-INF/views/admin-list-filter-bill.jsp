@@ -11,8 +11,8 @@
 </style>
 </head>
 <body>
-<button onclick="document.location='/user/staffindex'" style="float: right;">Home</button>
-		<button onclick="document.location='/billing/billallstafflist'"
+<button onclick="document.location='/user/admin'" style="float: right;">Home</button>
+		<button onclick="document.location='/billing/billalllist'"
 			style="float: left;">Back</button>
 	<h3>Filter</h3>
 	<br>

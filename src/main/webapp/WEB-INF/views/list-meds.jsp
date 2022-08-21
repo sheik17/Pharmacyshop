@@ -7,85 +7,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Medicine List</title>
+<link href='https://css.gg/arrow-left-o.css' rel='stylesheet'>
 <style>
-body {
-   background: #00b09b;
-  background: -webkit-linear-gradient(to right, #00b09b, #96c93d);
-  background: linear-gradient(to right, #00b09b, #96c93d);
-}
-.card {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	max-width: 300px;
-	margin: auto;
-	text-align: center;
-	font-family: arial;
-}
-
-.price {
-	color: grey;
-	font-size: 22px;
-}
-
-.card button {
-	border: none;
-	outline: 0;
-	padding: 12px;
-	color: white;
-	background-color: #000;
-	text-align: center;
-	cursor: pointer;
-	width: 100%;
-	font-size: 18px;
-}
-
-.card button:hover {
-	opacity: 0.7;
-}
-.header {
-  overflow: hidden;
-  padding: 20px 10px;
-  background-color: #ddd;
-}
-.header a {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  line-height: 25px;
-  border-radius: 4px;
-}
-
-.header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.header a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.header a.active {
-  background-color: dodgerblue;
-  color: white;
-}
-
-.header-right {
-  float: right;
-}
-
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .header-right {
-    float: none;
-  }
-}
+<%@include file="/WEB-INF/css/list-meds.css"%>
 </style>
 </head>
 <body>
@@ -95,14 +19,13 @@ body {
   <div class="header-right">
     <a  href="/user/staffindex">Home</a>
     <a class="active" href="/medicine/medlist">Medicines</a>
+    <a href="/billing/billallstafflist">Bill List</a>
     <a href="/user/index">Logout</a>
     
   </div>
 </div>
 </header>
 	<c:forEach var="medicine" items="${allmed}">
-	<h2 style="text-align: center">Product Card</h2>
-
 	<div class="card">
 		<img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}" alt="" style="width: 100%">
 		<h1>${medicine.medicinename}</h1>

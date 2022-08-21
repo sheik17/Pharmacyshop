@@ -32,6 +32,12 @@ public class BillingController {
 		model.addAttribute("allbill", billlist);
 		return "list-bills";
 	}
+	@GetMapping("/billallstafflist")
+	public String getBillAllStaff(Model model) {
+		List<Billing> billlist = billservice.getBilling();
+		model.addAttribute("allbillstaff", billlist);
+		return "staff-list-bills";
+	}
 	@GetMapping("/findbillid")
 	public String findBillById(@RequestParam("id") int id, Model model) {
 		Billing thebill = billservice.findById(id);
@@ -112,6 +118,10 @@ public class BillingController {
 	 @GetMapping("/getfilterphoneno")
 	    public String getPhoneNoForm() {
 	        return "list-filter-bill";
+	    }
+	 @GetMapping("/getadminfilterphoneno")
+	    public String getAdminPhoneNoForm() {
+	        return "admin-list-filter-bill";
 	    }
 	 @GetMapping("/phoneno")
 	    public String getAllStatus(@RequestParam("cusPhoneno") long cusPhoneno, Model model) {

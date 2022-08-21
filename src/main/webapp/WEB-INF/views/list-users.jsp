@@ -7,49 +7,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User List</title>
-<style type="text/css">
-@charset "ISO-8859-1";
-body
-{
-background-color: #ccffff;
-}
-h1, h2, h3 {
-	text-align: center;
-}
-table {
-	text-align: center;
-	width: 90%;
-	
-}
-#alter{
-margin-left:80px;
-}
-
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-
-th, td {
-	padding: 10px;
-}
-
-table#alter tr:nth-child(even) {
-	background-color: #eee;
-}
-
-table#alter tr:nth-child(odd) {
-	background-color: #fff;
-}
-
-table#alter th {
-	color: white;
-	background-color: gray;
-}
-table.center {
-	margin-left: auto;
-	margin-right: auto;
-}
+<link href='https://css.gg/arrow-left-o.css' rel='stylesheet'>
+<style>
+<%@include file="/WEB-INF/css/list-users.css"%>
 </style>
 </head>
 <body>
@@ -59,9 +19,8 @@ table.center {
 		<caption></caption>
 			<thead>
 				<tr>
-					<th>User_Id</th>
+					<th>Staff_Id</th>
 					<th>User_Name</th>
-					<th>User_Password</th>
 					<th>Phone_No</th>
 					<th>Email</th>
 					<th>Role</th>
@@ -72,7 +31,6 @@ table.center {
 					<tr>
 						<td>${user.userId}</td>
 						<td>${user.userName}</td>
-						<td>${user.userPassword}</td>
 						<td>${user.phoneNo}</td>
 						<td>${user.email}</td>
 						<td>${user.role}</td>

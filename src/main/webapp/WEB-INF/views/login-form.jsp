@@ -7,103 +7,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Login</title>
-<style type="text/css">
-style type ="text /css ">.text-danger {
-	color: #e80c4d;
-	font-size: 0.9em;
-}
-
-body {
-	background-image:
-		url("https://omsi.in/wp-content/uploads/2018/04/Online-Medical-store-Jehanabad.png");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: 100% 100%;
-}
-
-h1 {
-	color: #2F4F4F;
-	 text-align: center;
-}
-
-label {
-	color: #2F4F4F;
-	font-size: 1.3em;
-	display: flex;
-	margin: 5px;
-	font-weight: bold;
-	cursor: pointer;
-	transition: .5s ease-in-out;
-}
-
-#userName {
-	width: 250px;
-	height: 30px;
-	border: none;
-	border-radius: 3px;
-	padding-left: 8px;
-}
-
-#userPassword {
-	width: 250px;
-	height: 30px;
-	border: none;
-	border-radius: 3px;
-	padding-left: 8px;
-}
-
-#role {
-	width: 260px;
-	height: 30px;
-	border: none;
-	border-radius: 3px;
-	padding-left: 8px;
-}
-
-#cap {
-	width: 260px;
-	height: 30px;
-	border: none;
-	border-radius: 3px;
-	padding-left: 8px;
-}
-
-#txtCompare {
-	width: 255px;
-	height: 30px;
-	border: none;
-	border-radius: 3px;
-	padding-left: 8px;
-}
-
-#txtCaptcha {
-	width: 255px;
-	height: 30px;
-	border: none;
-	border-radius: 3px;
-	padding-left: 8px;
-}
-
-#log {
-	width: 250px;
-	height: 30px;
-	border: none;
-	border-radius: 3px;
-	padding-left: 8px;
-	color: blue;
-}
-
-.box {
-	width: 400px;
-	height: 420px;
-	overflow: hidden;
-	border-radius: 10px;
-	box-shadow: 5px 20px 50px #000;
-	margin: auto;
-	padding: 10px;
-	text-align: center;
-	background-color: #A9A9A9;
-}
+<link href='https://css.gg/arrow-left-o.css' rel='stylesheet'>
+<style>
+<%@include file="/WEB-INF/css/login-form.css"%>
 </style>
 <script type="text/javascript">
 	function GenerateCaptcha() {
@@ -137,6 +43,8 @@ label {
 </script>
 </head>
 <body onload="GenerateCaptcha()">
+<button onclick="document.location='/user/index'"
+			style="float: left;">Back</button>
 	<h1>Login</h1>
 	<br>
 	<div id="root" class="box">

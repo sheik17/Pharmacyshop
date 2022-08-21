@@ -6,38 +6,21 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>BillDetailsList</title>
+<title>Bill List</title>
+<link href='https://css.gg/arrow-left-o.css' rel='stylesheet'>
+<style>
+<%@include file="/WEB-INF/css/staff-list-bills.css"%>
+</style>
 </head>
 <body>
-	<div id="table root">
-		<table id="alter">
-		<caption></caption>
-			<thead>
-				<tr>
-				 	<th>Bill_Detail_Id</th>
-					<th>Bill_Id</th>
-					<th>Medicine_Id</th>
-					<th>Quantity</th>
-					<th>Price</th>
-					<th>Amount</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="billdetail" items="${allbilldetail}">
-					<tr>
-						<td>${billdetail.billDetailId}
-						<td>${billdetail.billid}</td>
-						<td>${billdetail.medicineid}</td>
-						<td>${billdetail.quantity}</td>
-						<td>${billdetail.price}</td>
-						<td>${billdetail.amount}</td>
-						<td><a href="/billdetail/billDetailsAdd?id=${billdetail.billid}&billid=${billid}"><button>Add bill</button></a></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
-	<div><a href="/billing/addbill?id=${billid}"><button>Bill</button></a></div>
+<h1>Bill List
+<br>
+		<button onclick="document.location='/user/staffindex'"
+			style="float: left;">Back</button>
+		<button name="value"
+			onclick="document.location='/billing/getfilterphoneno'"
+			style="float: center;">Filter Phoneno</button>
+	</h1>
 	<div id="table root">
 		<table id="alter">
 		<caption></caption>
@@ -52,7 +35,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="billing" items="${allbilldetails}">
+				<c:forEach var="billing" items="${allbillstaff}">
 					<tr>
 						<td>${billing.billid}</td>
 						<td>${billing.cusName}</td>

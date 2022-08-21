@@ -7,96 +7,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add BillDetails</title>
+<link href='https://css.gg/arrow-left-o.css' rel='stylesheet'>
 <style>
-@charset "ISO-8859-1";
-
-body {
-	background-color: #ccffff;
-}
-
-h1, h2, h3 {
-	text-align: center;
-}
-
-table {
-	text-align: center;
-	width: 90%;
-}
-
-#alter {
-	margin-left: 90px;
-}
-
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-
-th, td {
-	padding: 10px;
-}
-
-table#alter tr:nth-child(even) {
-	background-color: #eee;
-}
-
-table#alter tr:nth-child(odd) {
-	background-color: #fff;
-}
-
-table#alter th {
-	color: white;
-	background-color: gray;
-}
-
-table.center {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#myButton1 {
-	background-color: #04AA6D;
-	border: none;
-	color: white;
-	padding: 16px 32px;
-	text-decoration: none;
-	margin-left: auto;
-	margin-right: auto;
-	cursor: pointer;
-}
-#myButton2 {
-	background-color: #04AA6D;
-	border: none;
-	color: white;
-	padding: 16px 32px;
-	text-decoration: none;
-	margin-left: auto;
-	margin-right: auto;
-	cursor: pointer;
-}
-#myButton3 {
-	background-color: #04AA6D;
-	border: none;
-	color: white;
-	padding: 16px 32px;
-	text-decoration: none;
-	margin-left: auto;
-	margin-right: auto;
-	cursor: pointer;
-}
-#myButton4 {
-	background-color: #04AA6D;
-	border: none;
-	color: white;
-	padding: 16px 580px;
-	text-decoration: none;
-	margin-left: 90px;
-	margin-right: auto;
-	cursor: pointer;
-}
+<%@include file="/WEB-INF/css/add-billdetail-form.css"%>
 </style>
 </head>
 <body>
+<h1>Bill Medicine</h1>
 	<div id="table">
 		<table id="alter">
 		<caption></caption>
@@ -148,7 +65,7 @@ table.center {
 					<th>Quantity</th>
 					<th>Price</th>
 					<th>Amount</th>
-					<th>Update</th>
+					<th>Edit</th>
 					<th>Delete</th>
 				</tr>
 			</thead>
@@ -163,7 +80,7 @@ table.center {
 						<td>${billdetail.amount}</td>
 						<td><a
 							href="updatebilldetailform?id=${billdetail.billDetailId}"> <input
-								onclick="change()" type="button" value="Update" id="myButton2"></input></a></td>
+								onclick="change()" type="button" value="Edit" id="myButton2"></input></a></td>
 						<td><a
 							href="deletebilldetails?id=${billdetail.billDetailId}&billId=${billdetail.billid}"><input
 								onclick="change()" type="button" value="Delete" id="myButton3"></input></a></td>

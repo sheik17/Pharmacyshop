@@ -1,0 +1,89 @@
+@charset "ISO-8859-1";
+body {
+	background-image:
+		url("https://i0.wp.com/www.additudemag.com/wp-content/uploads/2018/12/GettyImages-840692780.jpg?resize=480%2C270px&ssl=1&w=640");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+h1 {
+	color: currentcolor;
+	text-align: center;
+}
+label {
+	color: currentcolor;
+	font-size: 1.3em;
+	display: flex;
+	margin: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+#medicinename {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#quantity {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#price {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#manufacture {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#expdate {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#pescriptionreq {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#stocks {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#col-sm-5 {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+.box {
+	width: 400px;
+	height: 620px;
+	overflow: hidden;
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
+	margin: auto;
+	padding: 10px;
+	text-align: center;
+}
+#button{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}

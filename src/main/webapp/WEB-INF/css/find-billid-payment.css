@@ -1,0 +1,67 @@
+@charset "ISO-8859-1";
+body {
+	background-image:
+		url("https://www.aldi.com.au/fileadmin/fm-dam/migrated_adaptive_images/ALC6158_KVB_Payments_MOB_1416x720.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+h1 {
+	color: #184e4e;
+	text-align: center;
+}
+label {
+	color: #184e4e;
+	font-size: 1.3em;
+	display: flex;
+	margin: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+#modeofpayment {
+	width: 265px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#billid {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#paymentdate {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+
+#balance {
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+#button
+{
+	background-color: #04AA6D;
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-decoration: none;
+	margin-left: auto;
+	margin-right: auto;
+	cursor: pointer;
+	}
+.box {
+	width: 400px;
+	height: 450px;
+	overflow: hidden;
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
+	margin: auto;
+	padding: 10px;
+	text-align: center;
+}

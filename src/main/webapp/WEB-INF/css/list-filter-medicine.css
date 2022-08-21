@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+h3
+{
+	text-align: center;
+}
+body {
+	background-color: aqua;
+}
+.box
+{
+	float: center;
+	text-align: center;
+	
+}

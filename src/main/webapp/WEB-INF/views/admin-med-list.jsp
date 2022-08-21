@@ -7,86 +7,23 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Medicine List</title>
-<style type="text/css">
-@charset "ISO-8859-1";
-
-body {
-	background-color: #ccffff;
-}
-
-h1, h2, h3 {
-	text-align: center;
-}
-
-table {
-	text-align: center;
-	width: 90%;
-}
-
-#alter {
-	margin-left: 90px;
-}
-
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-
-th, td {
-	padding: 10px;
-}
-
-table#alter tr:nth-child(even) {
-	background-color: #eee;
-}
-
-table#alter tr:nth-child(odd) {
-	background-color: #fff;
-}
-
-table#alter th {
-	color: white;
-	background-color: gray;
-}
-
-table.center {
-	margin-left: auto;
-	margin-right: auto;
-}
-#myButton2 {
-	background-color: #04AA6D;
-	border: none;
-	color: white;
-	padding: 16px 32px;
-	text-decoration: none;
-	margin-left: auto;
-	margin-right: auto;
-	cursor: pointer;
-}
-#myButton3 {
-	background-color: #04AA6D;
-	border: none;
-	color: white;
-	padding: 16px 32px;
-	text-decoration: none;
-	margin-left: auto;
-	margin-right: auto;
-	cursor: pointer;
-}
+<link href='https://css.gg/arrow-left-o.css' rel='stylesheet'>
+<style>
+<%@include file="/WEB-INF/css/admin-med-list.css"%>
 </style>
 </head>
 <body>
-<h1>Medicine List
-<br>
-		<button onclick="document.location='/user/admin'"
-			style="float: left;">Back</button>
-		<button name="value"
+	<h1>
+		Medicine List <br>
+		<button onclick="document.location='/user/admin'" style="float: left;">Back</button>
+		<button class="value"
 			onclick="document.location='/medicine/getfilterexpdate'"
-			style="float: center;">Filter ExpDate</button>
+			style="float: center;">Find ExpDate</button>
 	</h1>
+
 	<div id="table">
 		<table id="alter">
-		<caption></caption>
+			<caption></caption>
 			<thead>
 				<tr>
 					<th>Medicine_Id</th>
@@ -116,18 +53,15 @@ table.center {
 						<td><img
 							src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}"
 							width="100" height="100" alt=""></td>
-						<td><a
-							href="updatemedform?id=${medicine.medicineid}"> <input
+						<td><a href="updatemedform?id=${medicine.medicineid}"> <input
 								onclick="change()" type="button" value="Update" id="myButton2"></input></a></td>
-						<td><a
-							href="deletemed?id=${medicine.medicineid}"><input
+						<td><a href="deletemed?id=${medicine.medicineid}"><input
 								onclick="change()" type="button" value="Delete" id="myButton3"></input></a></td>
-						</tr>
+					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<br> 
-		<br>
+		<br> <br>
 	</div>
 </body>
 </html>
