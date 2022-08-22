@@ -129,10 +129,4 @@ public class BillingController {
 	        model.addAttribute("allbill", billCusPhoneno);
 	        return "list-bills";
 	    }
-	 @GetMapping("/cusPhoneNo")
-		public String getPhoneNo(@RequestParam("cusPhoneno") long cusPhoneno, Model model) {
-		    List<Billing> billCusPhoneno = billservice.cusPhoneno(cusPhoneno);
-	        model.addAttribute("allbillstaff", billCusPhoneno);
-			return "staff-list-bills";
-		}
 	 }

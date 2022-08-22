@@ -15,8 +15,7 @@
 <body>
 <h1>Bill List
 <br>
-		<button onclick="document.location='/user/admin'"
-			style="float: left;">Back</button>
+        <button onclick="history.back()">Go Back</button>
 		<button name="value"
 			onclick="document.location='/billing/getadminfilterphoneno'"
 			style="float: center;">Filter Phoneno</button>
