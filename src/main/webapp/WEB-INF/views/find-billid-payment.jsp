@@ -45,7 +45,7 @@
 				<div>
 					<label for="paymentdate">Payment Date</label>
 					<div>
-						<form:input path="paymentdate" type="date" />
+						<form:input path="paymentdate" type="date" title="Fill Date" pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$" required="true"/>
 					</div>
 				</div>
 				<br>

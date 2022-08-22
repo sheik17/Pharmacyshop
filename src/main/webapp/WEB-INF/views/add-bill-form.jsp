@@ -17,23 +17,25 @@
 	<div class="box">
 		<div id="root">
 			<form:form action="addbill" method="post" object="bill"
-				enctype="multipart/form-data" modelAttribute="addbill">
+				enctype="multipart/form-data" modelAttribute="addbill" name="myForm">
 				<div>
 					<label for="cusName">Cus_Name</label>
 					<div>
-						<form:input path="cusName" />
+						<form:input path="cusName" pattern="^[a-zA-Z\\s]{3,20}$" placeholder="Enter Name"  title="Name length should be 3 to 20" required="true" onblur="nameCheck();"/>
 					</div>
+					<form:errors path="cusName" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="cusPhoneno">Cus_PhoneNO</label>
 					<div>
-						<form:input path="cusPhoneno" />
+						<form:input path="cusPhoneno" pattern="^\\d{10}$" placeholder="Enter Phone Number" title="Phone number should be in 10 digit" onblur="mobileNumberCheck();" required="true"/>
 					</div>
+					<form:errors path="cusPhoneno" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="billdate">Bill_Date</label>
 					<div>
-						<form:input path="billdate" type="date" />
+						<form:input path="billdate" type="date" title="Fill Date" pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$" required="true"/>
 					</div>
 				</div>
 				<div class="col-sm-5">
@@ -54,5 +56,36 @@
 			</form:form>
 		</div>
 	</div>
+	<script type="text/javascript">
+	<script type="text/javascript">
+	let nameCheck = function() {
+		 let nameRegex = /^[a-zA-Z]+$/;
+		 if(!document.myForm.cusName.value.match(nameRegex)){
+				if(alert("Name must contain only alphabets")){ 
+					 document.myForm.cusName.focus();
+			    }
+				else
+					document.activeElement.blur();
+			}
+	    else{
+	        return false;
+	    }
+	   
+	}
+
+	 let mobileNumberCheck = function() {
+		 let phoneRg = /^[1-9]{1}[0-9]{9}/;
+		 if(!document.myForm.cusPhoneno.value.match(phoneRg)){
+				if(alert("Mobile Number is not valid and support only 10 numbers")){
+					 document.myForm.cusPhoneno.focus();
+				}
+				else
+					document.activeElement.blur();
+			}
+	    else{
+	    	return false;
+	    }
+	} 
+	</script>
 </body>
 </html>

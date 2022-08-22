@@ -31,6 +31,7 @@
 		<h1>${medicine.medicinename}</h1>
 		<p class="price">${medicine.price}</p>
 			<div><a href="/billing/addbillform">Add to Cart</a></div>
+			<br>
 	</div>
 	</c:forEach>
 </body>
