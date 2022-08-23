@@ -24,7 +24,7 @@
             </div>
             <div class="content">
                <h1>Payment Success !</h1>
-               <p>It is to confirm that I have received complete payment from your side. I am happy to completion of our deal at the right time. Many thanks to you that you paid full pay according to our contract. It is essential that it was our 1st business deal and it is completed without any interruption.</p>
+               <p>It is to confirm that I have received complete payment from your side.Sit Back and relax Your order will be received soon!</p>
                <a href="/user/index">Go to Home</a>
             </div>
             

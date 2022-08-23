@@ -45,7 +45,7 @@
 				<div>
 					<label for="paymentdate">Payment Date</label>
 					<div>
-						<form:input path="paymentdate" type="date" title="Fill Date" pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$" required="true"/>
+						<form:input path="paymentdate" type="date" title="Fill Date" pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$" onblur="billDate" required="true"/>
 					</div>
 				</div>
 				<br>
@@ -54,5 +54,20 @@
 			</form:form>
 		</div>
 	</div>
+	<script type="text/javascript">
+	let billDate = function() {
+		 let dateRg = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+		 if(!document.myForm.paymentdate.value.match(dateRg)){
+				if(alert("Plz Select Bill Date")){
+					 document.myForm.paymentdate.focus();
+				}
+				else
+					document.activeElement.blur();
+			}
+	    else{
+	    	return false;
+	    }
+	} 
+	</script>
 </body>
 </html>

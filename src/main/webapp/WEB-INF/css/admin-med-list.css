@@ -2,6 +2,10 @@
 body {
 	background-color: #ccffff;
 }
+#myInput
+{
+	margin-left: 620px;
+}
 h1, h2, h3 {
 	text-align: center;
 }

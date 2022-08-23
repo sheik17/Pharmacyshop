@@ -20,7 +20,9 @@
 			onclick="document.location='/medicine/getfilterexpdate'"
 			style="float: center;">Find ExpDate</button>
 	</h1>
-
+<input id="myInput" type="text" placeholder="Search..">
+<br>
+<br>
 	<div id="table">
 		<table id="alter">
 			<caption></caption>
@@ -39,7 +41,7 @@
 					<th>Delete</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="myTable">
 				<c:forEach var="medicine" items="${allmeddetail}">
 					<tr>
 						<td>${medicine.medicineid}</td>
@@ -63,5 +65,16 @@
 		</table>
 		<br> <br>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 </body>
 </html>

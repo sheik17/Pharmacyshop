@@ -25,6 +25,8 @@
   </div>
 </div>
 </header>
+
+<br>
 	<c:forEach var="medicine" items="${allmed}">
 	<div class="card">
 		<img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}" alt="" style="width: 100%">
@@ -34,5 +36,6 @@
 			<br>
 	</div>
 	</c:forEach>
+
 </body>
 </html>

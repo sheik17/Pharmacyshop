@@ -101,7 +101,7 @@ public class UserController {
 		return "login-form";
 	}
 	@PostMapping("/checkuserlogin")
-	public String checkingAccess(@ModelAttribute("user") User user) {
+	public String checkingAccess(@ModelAttribute("user") User user,Model model) {
 		User users = userservice.getUserNameAndUserPasswordAndRole(user.getUserName(), user.getUserPassword(),user.getRole());
 		if (users != null) {
 			if("admin".equals(users.getRole()))
@@ -114,7 +114,8 @@ public class UserController {
 			}
 		} else
 		{
-			return "redirect:/user/loginerror";
+			model.addAttribute("result","Invalid UserName or Password");
+			return "login-form";
 		}
 	}
 }

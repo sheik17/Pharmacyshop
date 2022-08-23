@@ -9,7 +9,8 @@
 <title>Login</title>
 <link href='https://css.gg/arrow-left-o.css' rel='stylesheet'>
 <style>
-<%@include file="/WEB-INF/css/login-form.css"%>
+<%@
+include file="/WEB-INF/css/login-form.css"%>
 </style>
 <script type="text/javascript">
 	function GenerateCaptcha() {
@@ -30,32 +31,58 @@
 		var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
 		var str2 = removeSpaces(document.getElementById('txtCompare').value);
 
-		if (str1 == str2){
+		if (str1 == str2) {
 			return true;
-		}else{
+		} else {
 			alert("Please enter correct captcha");
-		return false;
+			return false;
 		}
 	}
 	function removeSpaces(string) {
 		return string.split(' ').join('');
 	}
+	let nameCheck = function() {
+		 let nameRegex = /^[a-zA-Z]+$/;
+		 if(!document.myForm.userName.value.match(nameRegex)){
+				if(alert("Name must contain only alphabets")){ 
+					 document.myForm.userName.focus();
+			    }
+				else
+					document.activeElement.blur();
+			}
+	    else{
+	        return false;
+	    } 
+	   
+	}
+	let passwordCheck = function() {
+		let rg = /^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$/;
+		if(!document.form.userPassword.value.match(rg)){
+			if(alert("password must begin with letter and contain atleast one number and one symbol must have atleast 8 characters Ex:abcde@12")){
+				document.form.userPassword.focus();
+			}
+			else
+				document.activeElement.blur();
+		}
+	    else{
+	    	return false;
+	    }
+	}
 </script>
 </head>
 <body onload="GenerateCaptcha()">
-<button onclick="document.location='/user/index'"
-			style="float: left;">Back</button>
+	<button onclick="document.location='/user/index'" style="float: left;">Back</button>
 	<h1>Login</h1>
 	<br>
 	<div id="root" class="box">
 		<div id="form">
-			<form:form action="checkuserlogin" method="post" onsubmit="return ValidCaptcha()"
-				modelAttribute="user">
+			<form:form action="checkuserlogin" method="post"
+				onsubmit="return ValidCaptcha()" modelAttribute="user">
 				<div>
 					<label for="userName">User Name</label>
-					<form:input path="userName" pattern="^[a-z A-Z]+$"
-						placeholder="Enter Name" title="Please Enter Charactor Only"
-						required="true" />
+					<form:input path="userName" pattern="^[a-zA-Z\\s]{3,20}$"
+						placeholder="Enter Name" title="Name length should be 3 to 20"
+						required="true" onblur="nameCheck();" />
 					<div>
 						<form:errors path="userName" cssClass="text-danger" />
 					</div>
@@ -66,7 +93,8 @@
 						<form:input type="password" path="userPassword"
 							placeholder="Enter Password"
 							pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,20}$"
-							title="Enter Valid Password" required="true" />
+							title="Enter Valid Password" onblur="passwordCheck();"
+							required="true"/>
 					</div>
 					<form:errors path="userPassword" cssClass="text-danger" />
 				</div>
@@ -83,12 +111,13 @@
 				<div>
 					<label for="cap"> Enter Captcha</label>
 					<div>
-						<input type="text" id="txtCompare" /><br> <br>
-						 <input
-							 id="txtCaptcha" readonly="readonly"/> <br> <input type="button"
-							id="btnrefresh" value="Refresh" onclick="GenerateCaptcha()"/>
+						<input type="text" id="txtCompare" /><br> <br> <input
+							id="txtCaptcha" readonly="readonly" /> <br> <input
+							type="button" id="btnrefresh" value="Refresh"
+							onclick="GenerateCaptcha()" />
 					</div>
 				</div>
+				<div class="re">${result}</div>
 				<br>
 				<form:button id="log" onsubmit="ValidCaptcha()">Login</form:button>
 			</form:form>
