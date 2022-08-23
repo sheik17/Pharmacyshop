@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.chainsys.pharmacyshop.model.Medicine;
 import com.chainsys.pharmacyshop.model.User;
 import com.chainsys.pharmacyshop.service.MedicineService;

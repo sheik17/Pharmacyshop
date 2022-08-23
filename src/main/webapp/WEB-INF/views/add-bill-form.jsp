@@ -19,14 +19,14 @@
 			<form:form action="addbill" method="post" object="bill"
 				enctype="multipart/form-data" modelAttribute="addbill" name="myForm">
 				<div>
-					<label for="cusName">Cus_Name</label>
+					<label for="cusName">Customer_Name</label>
 					<div>
 						<form:input path="cusName" pattern="^[a-zA-Z\\s]{3,20}$" placeholder="Enter Name"  title="Name length should be 3 to 20" required="true" onblur="nameCheck();"/>
 					</div>
 					<form:errors path="cusName" cssClass="text-danger" />
 				</div>
 				<div>
-					<label for="cusPhoneno">Cus_PhoneNO</label>
+					<label for="cusPhoneno">Cus_PhoneNo</label>
 					<div>
 						<form:input path="cusPhoneno" pattern="^\\d{10}$" placeholder="Enter Phone Number" title="Phone number should be in 10 digit" onblur="mobileNumberCheck();" required="true"/>
 					</div>
