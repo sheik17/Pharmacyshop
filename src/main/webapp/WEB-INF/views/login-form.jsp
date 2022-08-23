@@ -77,7 +77,7 @@ include file="/WEB-INF/css/login-form.css"%>
 	<div id="root" class="box">
 		<div id="form">
 			<form:form action="checkuserlogin" method="post"
-				onsubmit="return ValidCaptcha()" modelAttribute="user">
+				onsubmit="return ValidCaptcha()" modelAttribute="user" name="myForm">
 				<div>
 					<label for="userName">User Name</label>
 					<form:input path="userName" pattern="^[a-zA-Z\\s]{3,20}$"
