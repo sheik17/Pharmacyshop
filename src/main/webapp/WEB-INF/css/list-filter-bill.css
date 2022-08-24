@@ -9,6 +9,11 @@ body {
 .box
 {
 	float: center;
-	text-align: center;
-	
+	text-align: center;	
+}
+#errormessage
+{
+	text-align:center;
+	color:#fff;
+	font-size:35px;
 }

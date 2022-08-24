@@ -65,3 +65,9 @@ label {
 	padding: 10px;
 	text-align: center;
 }
+
+#errormessage{
+	text-align: center;
+	color: #fff;
+	font-size: 35px;
+}

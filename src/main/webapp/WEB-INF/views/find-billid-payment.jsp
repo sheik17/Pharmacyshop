@@ -14,6 +14,7 @@
 </head>
 <body>
 	<h1>Payment</h1>
+	<div id="errormessage">${message}</div>
 	<div class="box">
 		<div id="form">
 			<form:form action="addpayment" method="post"
@@ -21,7 +22,7 @@
 				<div>
 					<label for="billid">Bill Id</label>
 					<div>
-						<form:input path="billid" />
+						<form:input path="billid" readonly="true"/>
 					</div>
 				</div>
 				<div>

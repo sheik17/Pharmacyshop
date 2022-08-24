@@ -51,7 +51,7 @@ public class MedicineController {
 	@PostMapping("/addmed")
 	public String addNewMed(@RequestParam("productImage") MultipartFile file, Medicine medicine,
 			@RequestParam("imgName") String imgName) throws IOException {
-
+		
 		medicine.setMedicineid(medicine.getMedicineid());
 		medicine.setMedicinename(medicine.getMedicinename());
 		medicine.setExpdate(medicine.getExpdate());

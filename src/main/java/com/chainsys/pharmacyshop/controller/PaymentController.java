@@ -1,9 +1,13 @@
 package com.chainsys.pharmacyshop.controller;
 
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,6 +48,7 @@ public class PaymentController {
 		return "add-payment-form";
 	}
 
+
 	@GetMapping("/updatepaymentform")
 	public String showUpdateForm(@RequestParam("Id") int id, Model model) {
 		Payment thepayment = payservice.findById(id);
@@ -75,8 +80,19 @@ public class PaymentController {
 		return "find-billid-payment";
 	}
 	@PostMapping("/addpayment")
-	public String addPayment(@ModelAttribute("payments") Payment payment, Model model) {
-		payservice.save(payment);
-		return "success-page";
+	public String addPayment(@Valid @ModelAttribute("payments") Payment payment,Errors error,Model model) {
+		if(error.hasErrors()) {
+			return "find-billid-payment";
+		}
+		else {
+			try {
+				payservice.save(payment);
+				return "success-page";
+			}catch (Exception e) {
+				model.addAttribute("message",":(Failed to add payment");
+			}
+		}
+	     return "find-billid-payment";
 	}
+
 }

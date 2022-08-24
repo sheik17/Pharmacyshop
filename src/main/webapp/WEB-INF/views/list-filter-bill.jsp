@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Filter PhoneNo</title>
+
 <link href='https://css.gg/arrow-left-o.css' rel='stylesheet'>
 <style>
 <%@include file="/WEB-INF/css/list-filter-bill.css"%>
@@ -16,11 +17,14 @@
 			style="float: left;">Back</button>
 	<h3>Filter</h3>
 	<br>
+	
+	<br>
 	<div class="box">
 	<form action="phoneno" method="get" style="margin: 0;">
 		<label>Enter PhoneNo</label> <input type="number" placeholder="cusPhoneno"
 			name="cusPhoneno">
 			 <input type='submit' value="Get" name="submit">
+			 ${message}
 	</form>
 	</div>
 </body>
