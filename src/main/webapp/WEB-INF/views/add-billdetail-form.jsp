@@ -25,6 +25,9 @@ $(document).ready(function(){
 </head>
 <body>
 <h1>Bill Medicine</h1>
+<br>
+<button onclick="history.back()">Go Back</button>
+<br>
 <input id="myInput" type="text" placeholder="Search..">
 <br>
 <br>
@@ -35,7 +38,6 @@ $(document).ready(function(){
 				<tr>
 					<th>Medicine_Id</th>
 					<th>Medicine_Name</th>
-					<th>Quantity</th>
 					<th>Price</th>
 					<th>Manufacture_Date</th>
 					<th>Exp_Date</th>
@@ -50,7 +52,6 @@ $(document).ready(function(){
 					<tr>
 						<td>${medicine.medicineid}</td>
 						<td>${medicine.medicinename}</td>
-						<td>${medicine.quantity}</td>
 						<td>${medicine.price}</td>
 						<td>${medicine.manufacture}</td>
 						<td>${medicine.expdate}</td>

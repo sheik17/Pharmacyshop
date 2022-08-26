@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Sign up</title>
+<title>Add Staff</title>
 <link href='https://css.gg/arrow-left-o.css' rel='stylesheet'>
 <style>
 <%@include file="/WEB-INF/css/add-user-form.css"%>
@@ -14,6 +14,10 @@
 </head>
 <body>
 	<h1>Sign Up</h1>
+	<div id="errormessage">
+	${message}
+	</div>
+	<br>
 	<div id="root" class="box">
 		<div id="form">
 			<form:form action="adduser" method="post" modelAttribute="adduser" name="myForm">
@@ -90,7 +94,7 @@
 	} 
 	 
 	let emailCheck = function() {
-		let rg = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$/;
+		let rg = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
 		if(!document.myForm.email.value.match(rg)){
 			if(alert("Email is not valid Ex:abc@gmail.com")){
 				document.myForm.email.focus();

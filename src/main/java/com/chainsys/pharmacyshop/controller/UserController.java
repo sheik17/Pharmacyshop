@@ -68,13 +68,19 @@ public class UserController {
 		return "add-user-form";
 	}
 	@PostMapping("/adduser")
-	public String addNewUser(@Valid@ModelAttribute("adduser") User theuser,Errors errors) {
+	public String addNewUser(@Valid@ModelAttribute("adduser") User theuser,Errors errors,Model model) {
 		if(errors.hasErrors()) {
 			return "add-user-form";
 		}
 		else {
+			try {
 		userservice.save(theuser);
 		return "redirect:/user/login";
+			}catch(Exception er)
+			{	
+				model.addAttribute("message","Enter unique name and email");
+				return "add-user-form";
+			}
 		}
 	}
 

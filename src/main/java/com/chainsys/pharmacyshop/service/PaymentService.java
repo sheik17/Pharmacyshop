@@ -21,7 +21,7 @@ public class PaymentService {
 	}
 
 
-	public Payment save(Payment pay) {
+	public Payment save(Payment pay) {	
 		Payment payment=payRepo.save(pay);
 		Billing billing=billingService.findById(pay.getBillid());
 		billing.setBillamount(pay.getBalance());

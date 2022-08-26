@@ -18,6 +18,9 @@
 <button onclick="document.location='/user/admin'"
 			style="float: left;">Back</button>
 </h1>
+<div id="errormessage">
+${message}
+</div>
 	<div class="box">
 		<div id="form">
 			<div id="root">
@@ -27,12 +30,6 @@
 						<label for="medicinename">Medicine Name</label>
 						<div>
 							<form:input path="medicinename" title="Enter valid medicine name" pattern="^[a-zA-Z\\s]{3,20}{  }$" required="true"/>
-						</div>
-					</div>
-					<div>
-						<label for="quantity">Quantity</label>
-						<div>
-							<form:input path="quantity" title="Enter Quantity" pattern="^{1,100}$" required="true"/>
 						</div>
 					</div>
 					<div>

@@ -87,9 +87,9 @@ public class PaymentController {
 		else {
 			try {
 				payservice.save(payment);
-				return "success-page";
+				return "redirect:/billing/findbillid?id="+payment.getBillid();
 			}catch (Exception e) {
-				model.addAttribute("message",":(Failed to add payment");
+				model.addAttribute("message","Failed to add payment");
 			}
 		}
 	     return "find-billid-payment";

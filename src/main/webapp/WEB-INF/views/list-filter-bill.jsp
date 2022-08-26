@@ -17,14 +17,13 @@
 			style="float: left;">Back</button>
 	<h3>Filter</h3>
 	<br>
-	
+	${message}
 	<br>
 	<div class="box">
 	<form action="phoneno" method="get" style="margin: 0;">
 		<label>Enter PhoneNo</label> <input type="number" placeholder="cusPhoneno"
 			name="cusPhoneno">
 			 <input type='submit' value="Get" name="submit">
-			 ${message}
 	</form>
 	</div>
 </body>

@@ -8,11 +8,11 @@
  #General Information:
  
     1.Pharmacyshop helps in managing the medicine stocks by selling them and viewing the medicine list 
-    2. It enables the Staff to bill the medicine.
+    2.It enables the Staff to bill the medicine.
     
  #Project Flow:
  
-    Home--->Staff-Signup---->StaffLogin
+    Home--->-Login Admin And Staff
  
     Admin--->-Add medicine
              -Update, Delete Medicine
@@ -21,6 +21,7 @@
              -List Medicine
              -Find expiry Medicines
              -List Payment
+             -Add Staff
              -Logout
              
     Staff--->-View Medicine
@@ -29,6 +30,7 @@
              -Edit,Delete Bill Details
              -Payment Gateway
              -Payment Success
+             -Bill Receipt
              -Logout
              
   #How To use

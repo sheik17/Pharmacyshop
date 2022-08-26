@@ -19,7 +19,6 @@
   <div class="header-right">
     <a class="active" href="/user/index">Home</a>
     <a href="/user/login">Login</a>
-    <a href="/user/adduserform">SignUp</a>
   </div>
 </div>
 </header>

@@ -32,6 +32,7 @@
 					<th>Bill_Date</th>
 					<th>Pescription_Img</th>
 					<th>Bill_Amount</th>
+					<th>Print</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -43,6 +44,9 @@
 						<td>${billing.billdate}</td>
 						<td><img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/presImg/${billing.pescriptionimg}" width="100" height="100" alt=""></td>
 						<td>${billing.billamount}</td>
+						<td><a
+							href="findbillid?id=${billing.billid}"><input
+								onclick="change()" type="button" value="Print" id="myButton3"></input></a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

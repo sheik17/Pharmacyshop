@@ -21,6 +21,7 @@
     <a href="/billing/billalllist">Bill List</a>
     <a href="/payment/paymentlist">Payment List</a>
     <a href="/user/userlist">Staff List</a>
+    <a href="/user/adduserform">Add Staff</a>
     <a href="/user/index">LogOut</a>
   </div>
 </div>

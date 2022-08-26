@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,16 +50,15 @@ public class MedicineController {
 		return "add-med-form";
 	}
 	@PostMapping("/addmed")
-	public String addNewMed(@RequestParam("productImage") MultipartFile file, Medicine medicine,
-			@RequestParam("imgName") String imgName) throws IOException {
-		
+	public String addNewMed(@RequestParam("productImage") MultipartFile file,@ModelAttribute("addmed") Medicine medicine,
+			@RequestParam("imgName") String imgName,Model model) throws IOException {
+		try {
 		medicine.setMedicineid(medicine.getMedicineid());
 		medicine.setMedicinename(medicine.getMedicinename());
 		medicine.setExpdate(medicine.getExpdate());
 		medicine.setManufacture(medicine.getManufacture());
 		medicine.setPrice(medicine.getPrice());
 		medicine.setPescriptionreq(medicine.getPescriptionreq());
-		medicine.setQuantity(medicine.getQuantity());
 		medicine.setStocks(medicine.getStocks());
 		String imageUUID;
 		if (!file.isEmpty()) {
@@ -71,6 +71,11 @@ public class MedicineController {
 		medicine.setMedicineimg(imageUUID);
 		medservice.save(medicine);	
 		return next;
+		}catch(Exception er)
+		{
+			model.addAttribute("message","Enter valid data");
+			return "add-med-form";
+		}
 	}
 	@GetMapping("/updatemedform")
 	public String showUpdateForm(@RequestParam("id") int id, Model model) {
@@ -79,15 +84,15 @@ public class MedicineController {
 		return "update-med-form";
 	}
 	@PostMapping("/updatemed")
-	public String updateMed(@RequestParam("productImage") MultipartFile file, Medicine product,
-			@RequestParam("imgName") String imgName) throws IOException {
+	public String updateMed(@RequestParam("productImage") MultipartFile file,@ModelAttribute("updatemed") Medicine product,
+			@RequestParam("imgName") String imgName,Model model) throws IOException {
+		try {
 		product.setMedicineid(product.getMedicineid());
 		product.setMedicinename(product.getMedicinename());
 		product.setExpdate(product.getExpdate());
 		product.setManufacture(product.getManufacture());
 		product.setPrice(product.getPrice());
 		product.setPescriptionreq(product.getPescriptionreq());
-		product.setQuantity(product.getQuantity());
 		product.setStocks(product.getStocks());
 		String imageUUID;
 		if (!file.isEmpty()) {
@@ -100,6 +105,11 @@ public class MedicineController {
 		product.setMedicineimg(imageUUID);
 		medservice.save(product);
 		return next;
+		}catch(Exception er)
+		{
+			model.addAttribute("message","Enter valid data");
+			return "update-med-form";
+		}
 	}
 	@GetMapping("/deletemed")
 	public String deleteMed(@RequestParam("id") int id) {

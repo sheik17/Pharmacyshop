@@ -40,3 +40,8 @@ table.center {
 	margin-left: auto;
 	margin-right: auto;
 }
+#button1
+{
+text-align: center;  
+margin:auto; 
+}

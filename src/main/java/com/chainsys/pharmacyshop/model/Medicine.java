@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Past;
 
 @Entity
 @Table(name="Medicine")
@@ -24,15 +26,15 @@ public class Medicine {
 	private int medicineid;
 	@Column(name="MEDICINE_NAME")
 	private String medicinename;
-	@Column(name="QUANTITY")
-	private int quantity;
 	@Column(name="PRICE")
 	private float price;
 	@Column(name="EXP_DATE")
+	@Future
 	private Date expdate;
 	@Column(name="PESCRIPTION_REQ")
 	private String pescriptionreq;
 	@Column(name="MANUFACTURE")
+	@Past
 	private Date manufacture;
 	@Column(name="STOCKS")
 	private long stocks;
@@ -58,12 +60,6 @@ public class Medicine {
 	}
 	public void setMedicinename(String medicinename) {
 		this.medicinename = medicinename;
-	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
 	}
 	public float getPrice() {
 		return price;

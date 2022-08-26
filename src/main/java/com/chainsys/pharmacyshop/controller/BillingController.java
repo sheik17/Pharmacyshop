@@ -1,4 +1,5 @@
 package com.chainsys.pharmacyshop.controller;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import com.chainsys.pharmacyshop.dto.BillToBillDetailDTO;
 import com.chainsys.pharmacyshop.dto.BillToPaymentDTO;
+import com.chainsys.pharmacyshop.model.BillDetails;
 import com.chainsys.pharmacyshop.model.Billing;
 import com.chainsys.pharmacyshop.service.BillingDetailsService;
 import com.chainsys.pharmacyshop.service.BillingService;
@@ -26,24 +28,35 @@ public class BillingController {
 	@Autowired
 	private BillingDetailsService billdetailservice;
 	public String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/presImg";
+
 	@GetMapping("/billalllist")
 	public String getBillAll(Model model) {
-		List<Billing> billlist = billservice.getBilling();
-		model.addAttribute("allbill", billlist);
-		return "list-bills";
+		try {
+			List<Billing> billlist = billservice.getBilling();
+			model.addAttribute("allbill", billlist);
+			return "list-bills";
+		} catch (Exception er) {
+			return "index";
+		}
+
 	}
+
 	@GetMapping("/billallstafflist")
 	public String getBillAllStaff(Model model) {
 		List<Billing> billlist = billservice.getBilling();
 		model.addAttribute("allbillstaff", billlist);
 		return "staff-list-bills";
 	}
+
 	@GetMapping("/findbillid")
 	public String findBillById(@RequestParam("id") int id, Model model) {
 		Billing thebill = billservice.findById(id);
+		List<BillDetails> billdetaillist = billdetailservice.findAllByBillid(id);
+		model.addAttribute("allbilldetails", billdetaillist);
 		model.addAttribute("findbillbyid", thebill);
 		return "find-bill-id-form";
 	}
+
 	@GetMapping("/addbillform")
 	public String showAddForm(Model model) {
 		Billing thebill = new Billing();
@@ -51,6 +64,7 @@ public class BillingController {
 		model.addAttribute("addbill", thebill);
 		return "add-bill-form";
 	}
+
 	@PostMapping("/addbill")
 	public String addNewUser(@RequestParam("productImage") MultipartFile file, Billing bill,
 			@RequestParam("imgName") String imgName) throws IOException {
@@ -68,18 +82,19 @@ public class BillingController {
 		}
 		bill.setPescriptionimg(imageUUID);
 		billservice.save(bill);
-		return "redirect:/billdetail/billslist?id="+bill.getBillid();
+		return "redirect:/billdetail/billslist?id=" + bill.getBillid();
 	}
+
 	@GetMapping("/updatebillform")
 	public String showUpdateForm(@RequestParam("Id") int id, Model model) {
 		Billing thebill = billservice.findById(id);
 		model.addAttribute("updatebill", thebill);
 		return "update-bill-form";
 	}
+
 	@PostMapping("/updatebill")
 	public String updateBill(@RequestParam("productImage") MultipartFile file, Billing bill,
-	@RequestParam("imgName") String imgName)throws IOException
-	{
+			@RequestParam("imgName") String imgName) throws IOException {
 		bill.setBillamount(bill.getBillamount());
 		bill.setBilldate(bill.getBilldate());
 		bill.setCusName(bill.getCusName());
@@ -96,37 +111,50 @@ public class BillingController {
 		billservice.save(bill);
 		return "redirect:/billing/billlist";
 	}
+
 	@GetMapping("/deletebill")
 	public String deleteBill(@RequestParam("Id") int id) {
 		billservice.deleteById(id);
 		return "redirect:/billing/billlist";
 	}
-	 @GetMapping("/getlistbilldetail")
-	    public String getBillDetailBilling(@RequestParam("id") int id, Model model) {
-	        BillToBillDetailDTO billtobilldetaildto = billservice.getBillToBillDetail(id);
-	        model.addAttribute("getbill", billtobilldetaildto.getBill());
-	        model.addAttribute("billdetaillist", billtobilldetaildto.getBillDetailList());
-	        return "list-billing-billdetail";
-	    }
-	 @GetMapping("/getbilltopayment")
-	    public String getBillToPayment(@RequestParam("id") int id, Model model) {
-	        BillToPaymentDTO dto = billservice.getBillToPaymentDTO(id);
-	        model.addAttribute("getbill", dto.getBilling());
-	        model.addAttribute("getpayment", dto.getPayment());
-	        return "list-bill-payment";
-	    }
-	 @GetMapping("/getfilterphoneno")
-	    public String getPhoneNoForm() {
-	        return "list-filter-bill";
-	    }
-	 @GetMapping("/getadminfilterphoneno")
-	    public String getAdminPhoneNoForm() {
-	        return "admin-list-filter-bill";
-	    }
-	 @GetMapping("/phoneno")
-	    public String getAllStatus(@RequestParam("cusPhoneno") long cusPhoneno, Model model) {
-	        List<Billing> billCusPhoneno = billservice.cusPhoneno(cusPhoneno);
-	        model.addAttribute("allbill", billCusPhoneno);
-	        return "list-bills";
-	    }
-	 }
+
+	@GetMapping("/getlistbilldetail")
+	public String getBillDetailBilling(@RequestParam("id") int id, Model model) {
+		BillToBillDetailDTO billtobilldetaildto = billservice.getBillToBillDetail(id);
+		model.addAttribute("getbill", billtobilldetaildto.getBill());
+		model.addAttribute("billdetaillist", billtobilldetaildto.getBillDetailList());
+		return "list-billing-billdetail";
+	}
+
+	@GetMapping("/getbilltopayment")
+	public String getBillToPayment(@RequestParam("id") int id, Model model) {
+		BillToPaymentDTO dto = billservice.getBillToPaymentDTO(id);
+		model.addAttribute("getbill", dto.getBilling());
+		model.addAttribute("getpayment", dto.getPayment());
+		return "list-bill-payment";
+	}
+
+	@GetMapping("/getfilterphoneno")
+	public String getPhoneNoForm() {
+		return "list-filter-bill";
+	}
+
+	@GetMapping("/getadminfilterphoneno")
+	public String getAdminPhoneNoForm() {
+		return "admin-list-filter-bill";
+	}
+
+	@GetMapping("/phoneno")
+	public String getAllStatus(@RequestParam("cusPhoneno") long cusPhoneno, Model model) {
+			List<Billing> billCusPhoneno = billservice.cusPhoneno(cusPhoneno);
+			model.addAttribute("allbill", billCusPhoneno);
+			if(billservice.cusPhoneno(cusPhoneno)!=null)
+			{
+			return "list-bills";
+			}
+			else
+			{
+				return "admin-list-filter-bill";
+			}
+	}
+}
