@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.chainsys.pharmacyshop.model.Medicine;
+import com.chainsys.pharmacyshop.model.Payment;
 import com.chainsys.pharmacyshop.model.User;
 import com.chainsys.pharmacyshop.service.MedicineService;
+import com.chainsys.pharmacyshop.service.PaymentService;
 import com.chainsys.pharmacyshop.service.UserService;
 
 @Controller
@@ -21,13 +23,22 @@ public class UserController {
 	@Autowired
 	UserService userservice;
 	@Autowired
-	MedicineService medservice;	
+	MedicineService medservice;
+	@Autowired
+	PaymentService payservice;
 	@GetMapping("/index")
 	public String index(Model model)
 	{
 		List<Medicine> medlist = medservice.findAll();
 		model.addAttribute("allmed", medlist);
 		return "index";
+	}
+	@GetMapping("/successpage")
+	public String sucesspage(@RequestParam("id") int id,Model model) {
+	 Payment payment = payservice.findById(id);
+	 model.addAttribute("findById", payment);
+	 model.addAttribute("billid",id);
+		return "success-page";
 	}
 	@GetMapping("/admin")
 	public String admin()

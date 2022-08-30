@@ -76,6 +76,7 @@ public class PaymentController {
 		amount = Logic.getTotalAmount(billDetalsLit);
 		payment.setBalance(amount);
 		payment.setBillid(id);
+		payment.setPaymentdate(Logic.getInstanceDate());
 		model.addAttribute("payments", payment);
 		return "find-billid-payment";
 	}
@@ -87,7 +88,7 @@ public class PaymentController {
 		else {
 			try {
 				payservice.save(payment);
-				return "redirect:/billing/findbillid?id="+payment.getBillid();
+				return "redirect:/user/successpage?id="+payment.getBillid();
 			}catch (Exception e) {
 				model.addAttribute("message","Failed to add payment");
 			}

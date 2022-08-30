@@ -73,3 +73,13 @@ body {
     float: none;
   }
 }
+#button {
+	background-color: #04AA6D;
+	border: none;
+	color: white;
+	padding: 16px 580px;
+	text-decoration: none;
+	margin-left: 75px;
+	margin-right: auto;
+	cursor: pointer;
+}

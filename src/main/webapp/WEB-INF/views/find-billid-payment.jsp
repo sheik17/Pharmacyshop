@@ -14,6 +14,8 @@
 </head>
 <body>
 	<h1>Payment</h1>
+	<br>
+	<button onclick="history.back()">Go Back</button>
 	<div id="errormessage">${message}</div>
 	<div class="box">
 		<div id="form">
@@ -46,7 +48,7 @@
 				<div>
 					<label for="paymentdate">Payment Date</label>
 					<div>
-						<form:input path="paymentdate" type="date" title="Fill Date" pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$" onblur="billDate" required="true"/>
+						<form:input path="paymentdate" type="date" title="Fill Date" pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$" onblur="billDate" required="true" readonly="true"/>
 					</div>
 				</div>
 				<br>

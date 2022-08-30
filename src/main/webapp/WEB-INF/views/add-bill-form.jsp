@@ -35,7 +35,7 @@
 				<div>
 					<label for="billdate">Bill_Date</label>
 					<div>
-						<form:input path="billdate" type="date" onblur="billDate();" title="Fill Date" pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$" required="true"/>
+						<form:input path="billdate" type="date" onblur="billDate();" title="Fill Date" pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$" required="true" readonly="true"/>
 					</div>
 				</div>
 				<div class="col-sm-5">

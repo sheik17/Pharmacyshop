@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.chainsys.pharmacyshop.businesslogic.Logic;
 import com.chainsys.pharmacyshop.dto.BillToBillDetailDTO;
 import com.chainsys.pharmacyshop.dto.BillToPaymentDTO;
 import com.chainsys.pharmacyshop.model.BillDetails;
@@ -61,6 +63,7 @@ public class BillingController {
 	public String showAddForm(Model model) {
 		Billing thebill = new Billing();
 		billdetailservice.fetchallmedlist(thebill.getBillid());
+		thebill.setBilldate(Logic.getInstanceDate());
 		model.addAttribute("addbill", thebill);
 		return "add-bill-form";
 	}

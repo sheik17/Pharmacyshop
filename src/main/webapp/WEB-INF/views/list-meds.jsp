@@ -32,7 +32,7 @@
 		<img src="file:///C:/Users/shei3123/eclipse-workspace/pharmacyshop/src/main/resources/static/productImages/${medicine.medicineimg}" alt="" style="width: 100%">
 		<h1>${medicine.medicinename}</h1>
 		<p class="price">${medicine.price}</p>
-			<div><a href="/billing/addbillform">Add to Cart</a></div>
+			<a href="/billing/addbillform"><button  id="buttton">Add to Cart</button></a>
 			<br>
 	</div>
 	</c:forEach>

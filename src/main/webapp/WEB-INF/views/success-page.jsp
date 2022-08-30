@@ -15,6 +15,7 @@
 <%@include file="/WEB-INF/css/success-page.css"%>
 </style>
 <body>
+<button onclick="history.back()">Go Back</button>
       <div class="container">
    <div class="row">
       <div class="col-md-6 mx-auto mt-5">
@@ -25,7 +26,7 @@
             <div class="content">
                <h1>Payment Success !</h1>
                <p>It is to confirm that I have received complete payment from your side.Sit Back and relax Your order will be received soon!</p>
-               <a href="/user/index">Go to Home</a>
+               <a href="/billing/findbillid?id=${billid}">Print Receipt</a>
             </div>
             
          </div>
